@@ -81,5 +81,8 @@
   "browserslist": [
     "last 2 versions",
     "Chrome >= 50"
-  ]
+  ],
+  "dependencies": {
+    "vue-parallaxy": "^1.1.1"
+  }
 }

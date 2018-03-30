@@ -19,11 +19,15 @@
       MemberSnapShot
     },
     props: {
-      list: Array,
-      columns: {
-        type: Number,
-        default: 4
+      list: Array
+    },
+    data () {
+      return {
+        columns: 4
       }
+    },
+    created () {
+      this.updateColumns()
     },
     computed: {
       waterfallList () {
@@ -35,6 +39,18 @@
       },
       listWidth () {
         return (100 / this.columns) + '%'
+      }
+    },
+    methods: {
+      updateColumns () {
+        let documentWidth = document.documentElement.clientWidth
+        if (documentWidth <= 375) {
+          this.columns = 2
+        } else if (documentWidth <= 1024) {
+          this.columns = 3
+        } else {
+          this.columns = 4
+        }
       }
     }
   }

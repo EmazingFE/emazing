@@ -13,11 +13,6 @@ class Heart {
   constructor (canvas) {
     this.canvas = canvas
     this.ctx = canvas.getContext('2d')
-    this.width = parseFloat(getStyle(this.canvas, 'width'))
-    this.height = parseFloat(getStyle(this.canvas, 'height'))
-    this.centerX = this.width / 2
-    this.centerY = this.height / 2
-    this.init()
   }
 
   init () {
@@ -32,10 +27,9 @@ class Heart {
    * y = 13cos(t) - 5cos(2t) - 2cos(3t) - cos(4t)
    */
   cartesian (radian) {
-    let scale = 0.8
     return {
-      x: scale * 16 * Math.pow(Math.sin(radian), 3),
-      y: -scale * (13 * Math.cos(radian) -
+      x: 16 * Math.pow(Math.sin(radian), 3),
+      y: -1 * (13 * Math.cos(radian) -
           5 * Math.cos(2 * radian) -
           2 * Math.cos(3 * radian) -
           Math.cos(4 * radian))
@@ -52,12 +46,21 @@ class Heart {
     }
   }
 
-  draw ({ fillColor, lineColor, fill }) {
+  draw ({ fillColor, lineColor, fill, scale }) {
     this.clear()
+    // for response
+    this.width = parseFloat(getStyle(this.canvas, 'width'))
+    this.height = parseFloat(getStyle(this.canvas, 'height'))
+    this.centerX = this.width / 2
+    this.centerY = this.height / 2
+    this.init()
     // draw
     this.ctx.beginPath()
     this.vertices.forEach(vertex => {
-      this.ctx.lineTo(this.centerX + vertex.x, this.centerY + vertex.y)
+      this.ctx.lineTo(
+        this.centerX + scale * vertex.x,
+        this.centerY + scale * vertex.y
+      )
     })
     if (fill) {
       this.ctx.fillStyle = fillColor

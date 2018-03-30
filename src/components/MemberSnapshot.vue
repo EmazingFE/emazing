@@ -1,5 +1,8 @@
 <template>
   <div
+    @mouseleave="onmouseleave"
+    @mouseover="onmouseover"
+    :class="{'hover': hover}"
     class="member">
     <image-container
       :src="memberNormalPhoto"
@@ -9,10 +12,12 @@
       <image-container
         :src="memberHoverPhoto"
         class="member-hover-photo"></image-container>
-      <heart
+      <div
+        :class="{'fill': love}"
         @click="toggleLove"
-        class="member-love"
-        :fill="love"></heart>
+        class="member-love">
+        <icon :name="heartIconName"></icon>
+      </div>
     </div>
   </div>
 </template>
@@ -33,7 +38,8 @@
     },
     data () {
       return {
-        love: false
+        love: false,
+        hover: false
       }
     },
     mounted () {
@@ -60,11 +66,21 @@
       },
       width () {
         return this.$el.clientWidth
+      },
+      heartIconName () {
+        return this.love ? 'heart' : 'heart-o'
       }
     },
     methods: {
       toggleLove () {
+        console.info(123)
         this.love = !this.love
+      },
+      onmouseover () {
+        this.hover = true
+      },
+      onmouseleave () {
+        this.hover = false
       }
     }
   }
@@ -77,7 +93,7 @@
     position relative
     overflow hidden
 
-    &:hover {
+    &.hover {
       .member-hover-layer {
         opacity 1
       }
@@ -122,6 +138,17 @@
     position absolute
     right 10px
     bottom 10px
+    width 20px
+    height 20px
+    color white
+    cursor pointer
+    &.fill {
+      color red
+    }
+    svg {
+      width 100%
+      height 100%
+    }
   }
 
 </style>

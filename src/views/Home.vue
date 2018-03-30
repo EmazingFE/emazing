@@ -2,9 +2,9 @@
   <div class="home">
     <div class="home-parallax">
       <div class="home-parallax-content">
-        <h1>Emazing</h1>
-        <p>Self-improving happily every day!</p>
-        <p>Challenge complicated business, design awesome architecture!</p>
+        <h1>Emazing FE</h1>
+        <p>Professional and Effective</p>
+        <p>Rough but Optimistic</p>
       </div>
       <parallax :speed-factor="0.6">
         <img :src="cityAsset" alt="very cool bg" />
@@ -45,13 +45,18 @@
 
     .home-parallax-content {
       position absolute
+      width 100%
       top: 50%
       left 50%
       transform translate(-50%, -50%)
       color $white-color
 
       h1 {
+        font-size 60px
         margin 0
+      }
+      p {
+        font-size 40px
       }
     }
   }

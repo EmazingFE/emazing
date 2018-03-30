@@ -3,6 +3,7 @@
 </template>
 <script>
   import Heart from './widget/heart'
+  import { on, off } from '@/utils/dom'
   export default {
     props: {
       fillColor: {
@@ -18,15 +19,26 @@
     mounted () {
       this.heart = new Heart(this.$el)
       this.render()
+      // add listener
+      on(window)('resize', this.render)
+    },
+    beforeDestroyed () {
+      off(window)('resize', this.render)
     },
     methods: {
+      getScale () {
+//        let documentWidth = document.documentElement.clientWidth
+        return 1
+      },
       render () {
         let { fillColor, lineColor, fill } = this
+        let scale = this.getScale()
         if (this.heart) {
           this.heart.draw({
             fillColor,
             lineColor,
-            fill
+            fill,
+            scale
           })
         }
       },

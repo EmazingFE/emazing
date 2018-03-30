@@ -3,6 +3,8 @@
     <div class="home-parallax">
       <div class="home-parallax-content">
         <h1>Emazing</h1>
+        <p>Self-improving happily every day!</p>
+        <p>Challenge complicated business, design awesome architecture!</p>
       </div>
       <parallax :speed-factor="0.6">
         <img :src="cityAsset" alt="very cool bg" />
@@ -39,6 +41,7 @@
     width 100%
     overflow hidden
     position relative
+    text-align center
 
     .home-parallax-content {
       position absolute

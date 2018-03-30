@@ -1,8 +1,14 @@
 <template>
-  <div class="member">
-    <img :src="memberPhoto" class="member-photo"/>
+  <div
+    class="member">
+    <image-container
+      :src="memberNormalPhoto"
+      ref="normalPhoto"
+      class="member-photo"></image-container>
     <div class="member-hover-layer">
-      <p class="member-name">{{ memberName }}</p>
+      <image-container
+        :src="memberHoverPhoto"
+        class="member-hover-photo"></image-container>
       <heart
         @click="toggleLove"
         class="member-love"
@@ -11,11 +17,13 @@
   </div>
 </template>
 <script>
+  import ImageContainer from './ImageContainer.vue'
   import Heart from './Heart.vue'
 
   export default {
     components: {
-      Heart
+      Heart,
+      ImageContainer
     },
     props: {
       data: {
@@ -38,11 +46,20 @@
       memberName () {
         return this.member.name
       },
-      memberPhoto () {
-        return this.member.photo
+      memberDirectory () {
+        return this.member.directory
       },
       memberLove () {
         return this.member.love
+      },
+      memberNormalPhoto () {
+        return require(`static/${this.memberDirectory}/normal.jpg`)
+      },
+      memberHoverPhoto () {
+        return require(`static/${this.memberDirectory}/hover.jpg`)
+      },
+      width () {
+        return this.$el.clientWidth
       }
     },
     methods: {
@@ -59,12 +76,10 @@
     width 100%
     position relative
     overflow hidden
+
     &:hover {
       .member-hover-layer {
         opacity 1
-      }
-      .member-photo {
-        transform scale(1.4)
       }
     }
   }
@@ -86,22 +101,27 @@
   .member-photo {
     width 100%
     display block
-    transition transform .5s ease
+    transition all .5s ease
   }
 
-  .member-name {
-    color $white-color
-    font-size 18px
-    letter-spacing 2px
+  .member-hover-photo {
+    position absolute
+    top 0
+    left 0
+    right 0
+    width 100%
+  }
 
-    &::selection {
-      background none
-    }
+  .member-footer {
+    transition height .4s ease
+    height 0
+    overflow hidden
   }
 
   .member-love {
     position absolute
-    bottom 10px
     right 10px
+    bottom 10px
   }
+
 </style>

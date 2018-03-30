@@ -22,7 +22,7 @@
       list: Array,
       columns: {
         type: Number,
-        default: 3
+        default: 4
       }
     },
     computed: {

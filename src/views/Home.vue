@@ -37,7 +37,7 @@
   @import "../styles/var.styl"
 
   .home-parallax {
-    height 360px
+    height 100vh
     width 100%
     overflow hidden
     position relative

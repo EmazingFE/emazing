@@ -13,9 +13,9 @@ module.exports = {
     proxyTable: {},
 
     // Various Dev Server settings
-    host: 'localhost', // can be overwritten by process.env.HOST
+    host: 'localhost' +
+    '', // can be overwritten by process.env.HOST
     port: 8888, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
-    apiServerPort: 5555,  // mock server will listen at
     autoOpenBrowser: true,
     errorOverlay: true,
     notifyOnErrors: true,

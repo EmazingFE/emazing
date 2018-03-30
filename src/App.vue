@@ -123,6 +123,7 @@
 
   .navbar-item {
     padding 6px 15px
+    cursor pointer
     &.active {
       color $primary-color
     }

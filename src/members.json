@@ -1,11 +1,13 @@
 [
   {
     "name": "覃柯源",
-    "photo": "https://cdn-cms.f-static.com/uploads/2031/2000_56d6c37191cdf.jpg"
+    "photo": "https://cdn-cms.f-static.com/uploads/2031/2000_56d6c37191cdf.jpg",
+    "love": true
   },
   {
     "name": "熊国胜",
-    "photo": "https://cdn-cms.f-static.com/uploads/266851/2000_58d250edd765b.jpg"
+    "photo": "https://cdn-cms.f-static.com/uploads/266851/2000_58d250edd765b.jpg",
+    "love": true
   },
   {
     "name": "李元元",

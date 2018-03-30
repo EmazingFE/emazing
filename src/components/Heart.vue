@@ -1,61 +1,50 @@
 <template>
-  <canvas class="heart-c"></canvas>
+  <canvas class="heart-c" @click.stop="handleClick"></canvas>
 </template>
 <script>
+  import Heart from './widget/heart'
   export default {
     props: {
-      color: {
+      fillColor: {
         type: String,
-        default: ''
+        default: 'red'
+      },
+      lineColor: {
+        type: String,
+        default: 'white'
       },
       fill: Boolean
     },
-    data () {
-      return {
-        width: 0,
-        height: 0
-      }
-    },
     mounted () {
-      this.antiTooth(2)
+      this.heart = new Heart(this.$el)
       this.render()
     },
-    computed: {
-      canvas () {
-        return this.$el
+    methods: {
+      render () {
+        let { fillColor, lineColor, fill } = this
+        if (this.heart) {
+          this.heart.draw({
+            fillColor,
+            lineColor,
+            fill
+          })
+        }
+      },
+      handleClick (e) {
+        this.$emit('click', e)
       }
     },
-    methods: {
-      getStyle (dom, attr) {
-        let value = null
-        if (dom.currentStyle) {
-          value = dom.currentStyle[attr]
-        } else {
-          value = document.defaultView.getComputedStyle(dom, null)[attr]
-        }
-        return value
-      },
-      // 抗锯齿
-      antiTooth (ratio) {
-        this.width = parseFloat(getStyle(this.canvas, 'width'))
-        this.height = parseFloat(getStyle(this.canvas, 'height'))
-
-        this.canvas.style.width = this.width + 'px'
-        this.canvas.style.height = this.height + 'px'
-        this.canvas.height = 2 * this.height * ratio
-        this.canvas.width = 2 * this.width * ratio
-
-        this.ctx.scale(ratio * 2, ratio * 2)
-      },
-      render () {
-        let ctx = this.canvas.getContext('2d')
-
+    watch: {
+      fill () {
+        this.render()
       }
     }
   }
 </script>
 <style lang="stylus" rel="stylesheet/stylus">
-  .heart-c
-    width 20px
-    height 20px
+  .heart-c {
+    width 40px
+    height 40px
+    cursor pointer
+  }
 </style>

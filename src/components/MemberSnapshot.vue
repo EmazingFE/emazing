@@ -58,9 +58,13 @@
   .member {
     width 100%
     position relative
+    overflow hidden
     &:hover {
       .member-hover-layer {
         opacity 1
+      }
+      .member-photo {
+        transform scale(1.4)
       }
     }
   }
@@ -82,6 +86,7 @@
   .member-photo {
     width 100%
     display block
+    transition transform .5s ease
   }
 
   .member-name {

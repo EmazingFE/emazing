@@ -22,6 +22,6 @@ const routes = [
 
 export default new VueRouter({
   routes,
-  mode: 'hash',
+  mode: 'history',
   scrollBehavior
 })

@@ -12,7 +12,7 @@ import './styles/global.sass'
 Vue.component('icon', Icon)
 
 const removeLoading = () => {
-  let loading = document.getElementById('loading')
+  let loading = document.getElementById('loading-wrapper')
   if (loading) {
     loading.parentNode.removeChild(loading)
   }

@@ -7,6 +7,8 @@ import Icon from 'vue-awesome/components/Icon'
 
 import App from './App.vue'
 
+import './styles/global.sass'
+
 Vue.component('icon', Icon)
 
 const removeLoading = () => {

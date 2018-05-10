@@ -1,0 +1,33 @@
+@import "./color"
+
+::selection
+  background: none
+::scrollbar
+  background-color: #191b1f
+  width: 4px
+  height: 8px
+::scrollbar-thumb 
+  background-color: #27323c
+  border-radius: 3px
+::placeholder
+  color: $gray
+
+.flex
+  display: flex
+  &.column
+    flex-direction: column
+  &.wrap
+    flex-wrap: wrap
+  &.justify-end
+    justify-content: flex-end
+  &.justify-center
+    justify-content: center
+  &.align-center
+    align-items: center
+  &.space-between
+    justify-content: space-between
+  &.space-around
+    justify-content: space-around
+.flex-1
+  flex: 1
+  

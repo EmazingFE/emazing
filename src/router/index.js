@@ -16,7 +16,8 @@ const scrollBehavior = () => {
 const routes = [
   {
     path: '/',
-    name: 'index'
+    name: 'index',
+    component: Welcome
   },
   {
     path: '/welcome',
@@ -32,6 +33,6 @@ const routes = [
 
 export default new VueRouter({
   routes,
-  mode: 'history',
+  mode: 'hash',
   scrollBehavior
 })

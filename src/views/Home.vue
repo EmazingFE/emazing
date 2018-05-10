@@ -1,13 +1,12 @@
 <template>
   <div class="fun-body flex align-center justify-center">
-    <img :src="continueImg" id="continue-img" draggable=false>
+    <img src="https://fuss10.elemecdn.com/f/7b/0b7dd75a395c15670538a83145719png.png" id="continue-img" draggable=false>
   </div>
 </template>
 <script>
   export default {
     data () {
       return {
-        continueImg: require('static/continue.png')
       }
     }
   }

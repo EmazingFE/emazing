@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-import Home from '@/views/Home'
+import Welcome from '@/views/welcome'
+import Home from '@/views/home'
 
 Vue.use(VueRouter)
 
@@ -15,6 +16,15 @@ const scrollBehavior = () => {
 const routes = [
   {
     path: '/',
+    name: 'index'
+  },
+  {
+    path: '/welcome',
+    name: 'welcome',
+    component: Welcome
+  },
+  {
+    path: '/home',
     name: 'home',
     component: Home
   }

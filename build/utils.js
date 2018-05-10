@@ -4,6 +4,10 @@ const config = require('../config')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const packageConfig = require('../package.json')
 
+function resolveLocalCommonResource(p) {
+  return path.join(__dirname, '../src/styles', p)
+}
+
 exports.assetsPath = function (_path) {
   const assetsSubDirectory = process.env.NODE_ENV === 'production'
     ? config.build.assetsSubDirectory
@@ -39,6 +43,20 @@ exports.cssLoaders = function (options) {
         options: Object.assign({}, loaderOptions, {
           sourceMap: options.sourceMap
         })
+      })
+    }
+
+    // add common resource
+    if (loader === 'sass') {
+      loaders.push({
+        loader: 'sass-resources-loader',
+        options: {
+          // need a absolute path
+          resources: [
+            resolveLocalCommonResource('color.sass'),
+            resolveLocalCommonResource('global.sass'),
+          ]
+        }
       })
     }
 

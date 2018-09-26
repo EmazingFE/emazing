@@ -1,21 +1,77 @@
-@import "./color"
-
 ::selection
   background: none
 ::scrollbar
-  background-color: #191b1f
-  width: 4px
-  height: 8px
-::scrollbar-thumb 
-  background-color: #27323c
-  border-radius: 3px
+  width: .04rem
+  height: .08rem
 ::placeholder
-  color: $gray
+  color: $black-invalid
 
-.flex
+html, body
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Segoe, "Source Han Sans Sc", "Noto Sans CJK SC", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi MicroHei", sans-serif
+  font-size: .14rem
+  line-height: 1.4
+  background: $background
+  width: 100%
+  height: 100%
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+  color: $black-primary
+  padding: 0
+  margin: 0
+
+  *
+    box-sizing: border-box
+  p 
+    margin: 0
+#app
+  margin: 0 auto
+  width: 100%
+  height: 100%
+
+.hidden
+  display: none !important
+
+.fwb
+  font-weight: 500 !important
+
+@for $i from 0 to 11
+  .m#{$i}
+    margin: #{$i * .04}rem !important
+  .mt#{$i}
+    margin-top: #{$i * .04}rem !important
+  .mr#{$i}
+    margin-right: #{$i * .04}rem !important
+  .mb#{$i}
+    margin-bottom: #{$i * .04}rem !important
+  .ml#{$i}
+    margin-left: #{$i * .04}rem !important
+  .p#{$i}
+    padding: #{$i * .04}rem !important
+  .pt#{$i}
+    padding-top: #{$i * .04}rem !important
+  .pr#{$i}
+    padding-right: #{$i * .04}rem !important
+  .pb#{$i}
+    padding-bottom: #{$i * .04}rem !important
+  .pl#{$i}
+    padding-left: #{$i * .04}rem !important
+
+@for $i from 12 to 18
+  .fs#{$i}
+    font-size: #{$i / 100}rem
+
+.text-center
+  text-align: center
+
+.text-right
+  text-align: right
+
+.text-left
+  text-align: left !important
+
+.flex,
+.flex-column
   display: flex
-  &.column
-    flex-direction: column
   &.wrap
     flex-wrap: wrap
   &.justify-end
@@ -28,6 +84,16 @@
     justify-content: space-between
   &.space-around
     justify-content: space-around
+.flex-column
+  flex-direction: column
 .flex-1
-  flex: 1
-  
+  flex: 1 0
+
+.border-right
+  border-right: .01rem solid $border-assist
+.border-bottom
+  border-bottom: .01rem solid $border-assist
+.border-top
+  border-top: .01rem solid $border-assist
+.border
+  border: .01rem solid $border-assist

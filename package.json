@@ -1,7 +1,7 @@
 {
-  "name": "emazing.fun",
+  "name": "emazing",
   "version": "1.0.0",
-  "description": "Emazing团队生活内容",
+  "description": "Emazing 团队生活",
   "author": "zhou",
   "private": true,
   "scripts": {

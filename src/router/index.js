@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-import Welcome from '@/views/welcome'
 import Home from '@/views/home'
 
 Vue.use(VueRouter)
@@ -17,22 +16,12 @@ const routes = [
   {
     path: '/',
     name: 'index',
-    component: Welcome
-  },
-  {
-    path: '/welcome',
-    name: 'welcome',
-    component: Welcome
-  },
-  {
-    path: '/home',
-    name: 'home',
     component: Home
-  }
+  },
 ]
 
 export default new VueRouter({
   routes,
-  mode: 'hash',
+  mode: 'history',
   scrollBehavior
 })

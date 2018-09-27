@@ -53,8 +53,7 @@ exports.cssLoaders = function (options) {
         options: {
           // need a absolute path
           resources: [
-            resolveLocalCommonResource('color.sass'),
-            resolveLocalCommonResource('global.sass'),
+            resolveLocalCommonResource('index.sass'),
           ]
         }
       })

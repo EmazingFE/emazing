@@ -89,5 +89,24 @@
     "sass-resources-loader": "^1.3.3",
     "vue-awesome": "^2.3.5",
     "vue-parallaxy": "^1.1.1"
+  },
+  "faas": {
+    "domain": "emazing",
+    "public": "dist",
+    "description": "Emazing 团队生活",
+    "author_name": "keyuan.qin",
+    "authro_email": "keyuan.qin@ele.me",
+    "notice": [
+      "keyuan.qin@ele.me",
+      "yuanyuan.lish@ele.me",
+      "xiaoqian.li02@ele.me"
+    ],
+    "build": [
+      "npm install",
+      "npm run build",
+      "cp dist/index.html dist/200.html",
+      "cp hook.sh dist",
+      "npm run hook"
+    ]
   }
 }

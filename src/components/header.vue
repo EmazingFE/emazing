@@ -6,7 +6,7 @@ components/header.vue
     class="emazing-header">
     <div class="header">
       <div class="header-left">
-        <img src="../../static/logo-emazing.png"/>
+        <img :src="emazingLogo"/>
       </div>
       <div class="header-right">
         <div
@@ -27,9 +27,11 @@ components/header.vue
 </template>
 
 <script>
+  import emazingLogo from '../../static/logo-emazing.png'
   export default {
     data () {
       return {
+        emazingLogo: emazingLogo,
         modules: [
           {
             text: '首页',

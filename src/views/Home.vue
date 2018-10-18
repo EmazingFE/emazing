@@ -37,7 +37,7 @@
           <div class="global-name">{{blogObj.typeName}}</div>
           <div class="global-btn">
             <span>{{blogObj.btnName}}</span>
-            <img  class="btn-img" src="../../static/icon/arrow-right-light.svg"/>
+            <img  class="btn-img" :src="rightLightImg"/>
           </div>
         </div>      
       </div>  
@@ -55,7 +55,7 @@
           <div class="global-name">{{projectObj.typeName}}</div>
           <div class="global-btn">
             <span>{{projectObj.btnName}}</span>
-            <img  class="btn-img" src="../../static/icon/arrow-right-light.svg"/>
+            <img  class="btn-img" :src="rightLightImg"/>
           </div>
         </div>
         <div class="home-body-content-box box-left"
@@ -87,7 +87,7 @@
           <div class="home-team-desc">{{teamObj.description}}</div>
           <div class="home-team-btn">
             <span>{{teamObj.btnName}}</span>
-            <img  class="btn-img" src="../../static/icon/arrow-right-dark.svg"/>
+            <img  class="btn-img" :src="rightDarkImg"/>
           </div>
         </div> 
       </div> 
@@ -96,10 +96,17 @@
    </div>
  </template>
  <script>
-   export default {
-
-     data () {
-       return {
+  import rightLightImg from '../../static/icon/arrow-right-light.svg'
+  import rightDarkImg from '../../static/icon/arrow-right-dark.svg'
+  import blog1Img from '../../static/blog/blog1.png'
+  import team1Img from '../../static/team/team1.jpg'
+  export default {
+    data () {
+      return {
+        rightLightImg: rightLightImg,
+        rightDarkImg: rightDarkImg,
+        blog1Img: blog1Img,
+        team1Img: team1Img, 
         introduction: {
           title: '饿了么中后台前端团队',
           subtitle: 'Emazing FE',
@@ -113,7 +120,7 @@
           total: 136,
           blogs: [
             {
-              img: '../../static/blog/blog1.png',
+              img: blog1Img,
               author: '王超楠',
               tag: '技术共享',
               date: '2018.01.02',
@@ -121,7 +128,7 @@
               description: '我们在谈前端数据流管理之前，先来看一下组件化相关的概念，并以此为基础来讨论下基于Vue的开发过程中的数据流管理方案。我们在开发过程中，将后端返回的数据和控制UI状态的数据统称为state。现在我们知道，一个组件的state，有外部传入的，也有自身内部私有的。我们将围绕组件内部和外部state来探讨数据流管理方案。'
             },
             {
-              img: '../../static/blog/blog1.png',
+              img: blog1Img,
               author: '王超楠',
               tag: '技术共享',
               date: '2018.11.18',
@@ -138,7 +145,7 @@
           total: 82,
           blogs: [
             {
-              img: '../../static/blog/blog1.png',
+              img: blog1Img,
               author: '王超楠',
               tag: '技术共享',
               date: '2018.01.02',
@@ -146,7 +153,7 @@
               description: '我们在谈前端数据流管理之前，先来看一下组件化相关的概念，并以此为基础来讨论下基于Vue的开发过程中的数据流管理方案。我们在开发过程中，将后端返回的数据和控制UI状态的数据统称为state。现在我们知道，一个组件的state，有外部传入的，也有自身内部私有的。我们将围绕组件内部和外部state来探讨数据流管理方案。'
             },
             {
-              img: '../../static/blog/blog1.png',
+              img: blog1Img,
               author: '王超楠',
               tag: '技术共享',
               date: '2018.11.18',
@@ -158,7 +165,7 @@
         teamObj: {
           name: '团队',
           englishName: 'Team',
-          img: '../../static/team/team1.jpg',
+          img: team1Img,
           btnName: '加入我们',
           description: '我们是饿了么中后台前端开发团队（Emazing FE ），承担着饿了么中后台前端基础设施、数十个业务产品的研发。我们有着前沿的技术选型，欢快的工作氛围，多元的团队建设，饱足的成长食粮。在这里有一群年轻有趣的小伙伴，加入我们一起工作一起玩。Self-improving happily every day!Challenge complicated business, design awesome architecture!'
         }
@@ -290,6 +297,7 @@
         background-color: #7cb6ff
         box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1)
     .btn-img
+      margin-top: -5px
       vertical-align: middle
 
   .home-team
@@ -333,6 +341,6 @@
           background-color: #f0f2f5
           box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1)
       .btn-img
-        color: #303133
+        margin-top: -5px
         vertical-align: middle
 </style>

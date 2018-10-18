@@ -89,15 +89,15 @@ module.exports = new Promise((resolve, reject) => {
         : undefined
       }))
 
-      if (config.dev.px2rem) {
-        const Px2remWebpackPluginWebpack3 = require('px2rem-webpack-plugin-webpack3')
+      // if (config.dev.px2rem) {
+      //   const Px2remWebpackPluginWebpack3 = require('px2rem-webpack-plugin-webpack3')
 
-        devWebpackConfig.plugins.push(
-          new Px2remWebpackPluginWebpack3({
-            originScreenWidth: config.dev.originScreenWidth
-          })
-        )
-      }
+      //   devWebpackConfig.plugins.push(
+      //     new Px2remWebpackPluginWebpack3({
+      //       originScreenWidth: config.dev.originScreenWidth
+      //     })
+      //   )
+      // }
 
       resolve(devWebpackConfig)
     }

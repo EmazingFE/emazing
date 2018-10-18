@@ -129,15 +129,15 @@ if (config.build.productionGzip) {
   )
 }
 
-if (config.dev.px2rem) {
-  const Px2remWebpackPluginWebpack3 = require('px2rem-webpack-plugin-webpack3')
+// if (config.dev.px2rem) {
+//   const Px2remWebpackPluginWebpack3 = require('px2rem-webpack-plugin-webpack3')
 
-  webpackConfig.plugins.push(
-    new Px2remWebpackPluginWebpack3({
-      originScreenWidth: config.dev.originScreenWidth
-    })
-  )
-}
+//   webpackConfig.plugins.push(
+//     new Px2remWebpackPluginWebpack3({
+//       originScreenWidth: config.dev.originScreenWidth
+//     })
+//   )
+// }
 
 if (config.build.bundleAnalyzerReport) {
   const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin

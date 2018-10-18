@@ -18,6 +18,26 @@ const routes = [
     name: 'index',
     component: Home
   },
+  {
+    path: '/blog',
+    name: 'blog',
+    component: Home
+  },
+  {
+    path: '/project',
+    name: 'project',
+    component: Home
+  },
+  {
+    path: '/team',
+    name: 'team',
+    component: Home
+  },
+  {
+    path: '/about',
+    name: 'about',
+    component: Home
+  },
 ]
 
 export default new VueRouter({

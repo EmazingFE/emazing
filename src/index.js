@@ -3,6 +3,9 @@ import router from '@/router'
 
 import 'vue-awesome/icons/heart'
 import 'vue-awesome/icons/heart-o'
+import '@napos/vue-kiwi'
+import '@napos/vue-kiwi/src/styles/index.sass'
+
 import Icon from 'vue-awesome/components/Icon'
 
 import App from './App.vue'

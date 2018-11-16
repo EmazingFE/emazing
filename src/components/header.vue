@@ -27,7 +27,7 @@ components/header.vue
 </template>
 
 <script>
-  import emazingLogo from '../../static/logo-emazing.png'
+  import emazingLogo from '~/logo-emazing.png'
   export default {
     data () {
       return {
@@ -90,18 +90,13 @@ components/header.vue
 <style lang="sass" rel="stylesheet/sass">
   @import '../styles/var'
   .emazing-header
+    @extend .shadow-bottom, .h4, .f-500
     width: 100%
     height: $headerHeight
-    z-index: 10
-    font-size: 20px
-    font-weight: 500
-    color: #000000
-    box-sizing: border-box
     background-color: $backgroudColor
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.06)
     &.is-home
       background-color: $homeBackgroudColor
-      color: #ffffff
+      color: #FFF
       box-shadow: none
 
   .header

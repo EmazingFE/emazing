@@ -96,10 +96,10 @@
    </div>
  </template>
  <script>
-  import rightLightImg from '../../static/icon/arrow-right-light.svg'
-  import rightDarkImg from '../../static/icon/arrow-right-dark.svg'
-  import blog1Img from '../../static/blog/blog1.png'
-  import team1Img from '../../static/team/team1.jpg'
+  import rightLightImg from '~/icon/arrow-right-light.svg'
+  import rightDarkImg from '~/icon/arrow-right-dark.svg'
+  import blog1Img from '~/blog/blog1.png'
+  import team1Img from '~/team/team1.jpg'
   export default {
     data () {
       return {

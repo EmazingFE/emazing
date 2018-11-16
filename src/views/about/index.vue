@@ -164,13 +164,13 @@
             desc: '这家伙很懒, 什么都没填...'
           },
         ],
-        teamImage1: require('~/team/team1.jpg'),
-        teamImage2: require('~/team/team2.jpg'),
-        teamImage3: require('~/team/team3.jpg'),
-        teamImage4: require('~/team/team4.jpg'),
-        teamImage5: require('~/team/team5.jpg'),
-        emazingImage: require('~/team/emazing.jpg'),
-        logo: require('~/logo-emazing-white.png'),
+        teamImage1: 'https://fuss10.elemecdn.com/8/9a/9d167efcdc8a531853473aef2ddadjpeg.jpeg',
+        teamImage2: 'https://fuss10.elemecdn.com/7/6f/3e0ca04e5c2ac530f4d8c57d7df6fjpeg.jpeg',
+        teamImage3: 'https://fuss10.elemecdn.com/c/bb/01abb47f77622edb738f6ced0839ejpeg.jpeg',
+        teamImage4: 'https://fuss10.elemecdn.com/1/82/d6501425cfb6f17a393f4993932b6jpeg.jpeg',
+        teamImage5: 'https://fuss10.elemecdn.com/9/e9/a16f75ad03113c54975218d005d88jpeg.jpeg',
+        emazingImage: 'https://fuss10.elemecdn.com/7/97/8d581f257d886c522d394a842a351jpeg.jpeg',
+        logo: 'https://fuss10.elemecdn.com/4/80/62848476e2f6ca4cf2049dd479637png.png',
       }
     },
     methods: {

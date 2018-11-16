@@ -27,11 +27,10 @@ components/header.vue
 </template>
 
 <script>
-  import emazingLogo from '~/logo-emazing.png'
   export default {
     data () {
       return {
-        emazingLogo: emazingLogo,
+        emazingLogo: 'https://fuss10.elemecdn.com/f/c9/852ed58b43497f58aa60eee6f33dfpng.png',
         modules: [
           {
             text: '首页',

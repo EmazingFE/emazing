@@ -1,5 +1,5 @@
 <template>
-  <div class="body-page">
+  <div class="page-body">
     <p class="title">我们是怎样的团队？</p>
     <div class="about-desc">
       <p>我们是饿了么中后台前端开发团队（Emazing FE ），承担着饿了么中后台前端基础设施、数十个业务产品的研发。我们有着前沿的技术选型，欢快的工作氛围，多元的团队建设，饱足的成长食粮。在这里有一群年轻有趣的小伙伴，加入我们一起工作一起玩。</p>
@@ -61,7 +61,7 @@
           <div class="conect-us">
             <img :src="logo">
           </div>
-          <p class="email">emazing@ele.me</p>
+          <p class="email">keyuan.qin@ele.me</p>
         </div>
       </div>
     </div>
@@ -103,38 +103,65 @@
         memberList: [
           {
             name: '覃柯源',
-            position: '高级前端工程师',
-            desc: '专注前端技术30年, 业精于勤, 始于初心'
+            tags: ['吃鸡', '佛系健身'],
+            desc: '吃一把鸡就去健身'
           },
           {
             name: '李元元',
-            position: '高级前端工程师',
-            desc: '前端部门颜值担当, 技术与颜值双双在线'
-          },
-          {
-            name: '李晓倩',
-            position: '前端工程师',
-            desc: '前端部门颜值担当, 技术与颜值双双在线'
+            tags: ['烘焙小能手'],
+            desc: '翻过的车比你们吃过的蛋糕还多'
           },
           {
             name: '付超',
-            position: '高级前端工程师',
-            desc: '前端部门颜值担当, 技术与颜值双双在线'
+            tags: ['游泳教练', '一口气游 1km'],
+            desc: '丢'
           },
           {
-            name: '高辉',
-            position: '高级前端工程师',
-            desc: '前端部门颜值担当, 技术与颜值双双在线'
+            name: '李晓倩',
+            tags: ['月光', '下月光'],
+            desc: '这家伙很懒, 什么都没填...',
+            avatar: 'https://fuss10.elemecdn.com/2/85/140c60e4e897889dfa74b349c2ad3jpeg.jpeg'
           },
           {
-            name: '刘依琪',
-            position: '前端工程师',
-            desc: '前端部门颜值担当, 技术与颜值双双在线'
+            name: '王超楠',
+            tags: ['摄影大佬', '器材党'],
+            desc: '这家伙很懒, 什么都没填...',
+            avatar: 'https://fuss10.elemecdn.com/f/07/2fcdeb637ace4d565d9f8439eedcejpeg.jpeg'
+          },
+          {
+            name: '卢峰',
+            tags: ['户外运动', '上舰'],
+            desc: '这家伙很懒, 什么都没填...'
+          },
+          {
+            name: '何新远',
+            tags: ['Marvel', 'Super Hero'],
+            desc: '我再给你们推荐一下 "复仇者联盟3"'
+          },
+          {
+            name: '张闯',
+            tags: ['健身', '公关小能手'],
+            desc: '我觉得你这块肌肉不行'
+          },
+          {
+            name: '邵丁丁',
+            tags: ['胖丁'],
+            desc: '我以前也瘦过'
+          },
+          {
+            name: '邵忆乐',
+            tags: ['主机党', 'SONY'],
+            desc: '索尼大法好'
           },
           {
             name: '雷小龙',
-            position: '前端工程师',
-            desc: '前端部门颜值担当, 技术与颜值双双在线'
+            tags: ['全马'],
+            desc: '这家伙很懒, 什么都没填...'
+          },
+          {
+            name: '李璇',
+            tags: ['VLOG'],
+            desc: '这家伙很懒, 什么都没填...'
           },
         ],
         teamImage1: require('~/team/team1.jpg'),
@@ -198,7 +225,8 @@
             background: rgba(0, 0, 0, 0.8)
     .member-list
       @extend .flex, .flex-wrap, .space-between, .mt8
-      
+      height: 480px
+      overflow-x: auto
   .image-wrapper
     height: 260px
     overflow: hidden

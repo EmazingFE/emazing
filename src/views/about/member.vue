@@ -1,9 +1,12 @@
 <template>
   <div class="member-item">
-    <div class="avatar">{{ member.name[0] }}</div>
+    <div class="avatar">
+      <img :src="member.avatar" v-if="member.avatar">
+      <span v-else>{{ member.name[0] }}</span>
+    </div>
       <div class="member-info">
         <div class="h5 mt1 mb3">{{ member.name }}</div>
-        <div class="mb3">{{ member.position }}</div>
+        <div class="mb3">{{ member.tags.join(', ') }}</div>
         <div class="member-desc">{{ member.desc }}</div>
       </div>
     </div>
@@ -35,6 +38,9 @@
         background: #1989fa
         font-size: 54px
         color: #FFF
+        overflow: hidden
+        img
+          width: 100%
       .member-desc
         @extend .black-assist
         font-size: 12px

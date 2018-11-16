@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 import Home from '@/views/home'
+import Blog from '@/views/blog'
 import About from '@/views/about'
 
 Vue.use(VueRouter)
@@ -22,7 +23,7 @@ const routes = [
   {
     path: '/blog',
     name: 'blog',
-    component: Home
+    component: Blog
   },
   {
     path: '/project',

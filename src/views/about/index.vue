@@ -24,6 +24,7 @@
       <div class="member-list">
         <member-item v-for="(member, $i) in memberList"
           :member="member"
+          :color="randomColor()"
           :key="$i"></member-item>
       </div>
     </div>
@@ -70,13 +71,16 @@
 
 <script>
   import memberItem from './member'
+  import memberList from '@/constants/member'
 
   export default {
     components: {
       memberItem
     },
     data() {
+      memberList.sort(() => Math.random() - .5)
       return {
+        memberList,
         keywords: [
           {
             title: {
@@ -100,80 +104,22 @@
             desc: '激情 · 驱动 · 挑战'
           },
         ],
-        memberList: [
-          {
-            name: '覃柯源',
-            tags: ['吃鸡', '佛系健身'],
-            desc: '吃一把鸡就去健身'
-          },
-          {
-            name: '李元元',
-            tags: ['烘焙小能手'],
-            desc: '翻过的车比你们吃过的蛋糕还多'
-          },
-          {
-            name: '付超',
-            tags: ['游泳教练', '一口气游 1km'],
-            desc: '丢'
-          },
-          {
-            name: '李晓倩',
-            tags: ['月光', '下月光'],
-            desc: '这家伙很懒, 什么都没填...',
-            avatar: 'https://fuss10.elemecdn.com/2/85/140c60e4e897889dfa74b349c2ad3jpeg.jpeg'
-          },
-          {
-            name: '王超楠',
-            tags: ['摄影大佬', '器材党'],
-            desc: '这家伙很懒, 什么都没填...',
-            avatar: 'https://fuss10.elemecdn.com/f/07/2fcdeb637ace4d565d9f8439eedcejpeg.jpeg'
-          },
-          {
-            name: '卢峰',
-            tags: ['户外运动', '上舰'],
-            desc: '这家伙很懒, 什么都没填...'
-          },
-          {
-            name: '何新远',
-            tags: ['Marvel', 'Super Hero'],
-            desc: '我再给你们推荐一下 "复仇者联盟3"'
-          },
-          {
-            name: '张闯',
-            tags: ['健身', '公关小能手'],
-            desc: '我觉得你这块肌肉不行'
-          },
-          {
-            name: '邵丁丁',
-            tags: ['胖丁'],
-            desc: '我以前也瘦过'
-          },
-          {
-            name: '邵忆乐',
-            tags: ['主机党', 'SONY'],
-            desc: '索尼大法好'
-          },
-          {
-            name: '雷小龙',
-            tags: ['全马'],
-            desc: '这家伙很懒, 什么都没填...'
-          },
-          {
-            name: '李璇',
-            tags: ['VLOG'],
-            desc: '这家伙很懒, 什么都没填...'
-          },
-        ],
-        teamImage1: 'https://fuss10.elemecdn.com/8/9a/9d167efcdc8a531853473aef2ddadjpeg.jpeg',
+        teamImage1: 'https://fuss10.elemecdn.com/8/9a/9d167efcdc8a531853473aef2ddadjpeg.jpeg?imageView2/2/w/1500',
         teamImage2: 'https://fuss10.elemecdn.com/7/6f/3e0ca04e5c2ac530f4d8c57d7df6fjpeg.jpeg',
         teamImage3: 'https://fuss10.elemecdn.com/c/bb/01abb47f77622edb738f6ced0839ejpeg.jpeg',
         teamImage4: 'https://fuss10.elemecdn.com/1/82/d6501425cfb6f17a393f4993932b6jpeg.jpeg',
         teamImage5: 'https://fuss10.elemecdn.com/9/e9/a16f75ad03113c54975218d005d88jpeg.jpeg',
         emazingImage: 'https://fuss10.elemecdn.com/7/97/8d581f257d886c522d394a842a351jpeg.jpeg',
         logo: 'https://fuss10.elemecdn.com/4/80/62848476e2f6ca4cf2049dd479637png.png',
+        colorList: ['#f44336', '#e91e63', '#9c27b0', '#673ab7', '#3f51b5', '#2196f3', '#03a9f4', '#00bcd4', '#009688', '#4caf50', '#8bc34a', '#cddc39', '#ff9b3b', '#ffc107', '#ff9800', '#ff0722', '#795548', '#9e9e9e', '#607d8b']
       }
     },
     methods: {
+      randomColor() {
+        const length = this.colorList.length
+        const index = parseInt(Math.random() * length)
+        return this.colorList[index]
+      }
     }
   }
 </script>
@@ -225,7 +171,6 @@
             background: rgba(0, 0, 0, 0.8)
     .member-list
       @extend .flex, .flex-wrap, .space-between, .mt8
-      height: 480px
       overflow-x: auto
   .image-wrapper
     height: 260px

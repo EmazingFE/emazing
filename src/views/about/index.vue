@@ -78,7 +78,6 @@
       memberItem
     },
     data() {
-      memberList.sort(() => Math.random() - .5)
       return {
         memberList,
         keywords: [

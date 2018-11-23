@@ -1,28 +1,29 @@
-components/header.vue
 <template>
-  <!-- header -->
-  <div
-    :class="{'is-home': isIndexView}"
-    class="emazing-header">
-    <div class="header">
-      <div class="header-left">
-        <img :src="emazingLogo"/>
-      </div>
-      <div class="header-right">
-        <div
-          class="nav"
-          role="nav"
-          :class="{
-            'active': isActiveRoute(module.route),
-            'is-home': isIndexView
-           }"
-          @click="viewModule(module)"
-          :key="idx"
-          v-for="(module, idx) in modules">
-          <span>{{ module.text }}</span>
+  <div>
+    <div class="emazing-header"
+      :class="{'is-home': isIndexView}">
+      <div class="header">
+        <div class="header-left">
+          <img :src="emazingLogo"/>
+        </div>
+        <div class="header-right">
+          <div
+            class="nav"
+            role="nav"
+            :class="{
+              'active': isActiveRoute(module.route),
+              'is-home': isIndexView
+             }"
+            @click="viewModule(module)"
+            :key="idx"
+            v-for="(module, idx) in modules">
+            <span>{{ module.text }}</span>
+          </div>
         </div>
       </div>
     </div>
+    <div class="header-blank"
+      :class="{'is-home': isIndexView}"></div>
   </div>
 </template>
 
@@ -86,18 +87,25 @@ components/header.vue
   }
 </script>
 
-<style lang="sass" rel="stylesheet/sass">
-  @import '../styles/var'
+<style lang="sass">
   .emazing-header
     @extend .shadow-bottom, .h4, .f-500
+    position: fixed
+    top: 0
+    left: 0
+    z-index: 100
     width: 100%
     height: $headerHeight
-    background-color: $backgroudColor
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, .8) 80%, rgba(255, 255, 255, .6) 90%, rgba(255, 255, 255, 0) 100%)
     &.is-home
-      background-color: $homeBackgroudColor
+      background-image: linear-gradient(to bottom, rgba(42, 52, 73, 1) 0%, rgba(42, 52, 73, 1) 50%, rgba(42, 52, 73, .8) 80%, rgba(42, 52, 73, .6) 90%, rgba(42, 52, 73, 0) 100%)
       color: #FFF
       box-shadow: none
 
+  .header-blank
+    height: $headerHeight
+    &.is-home
+      background-color: $homeBackgroudColor
   .header
     width: $pageWidth
     height: 100%

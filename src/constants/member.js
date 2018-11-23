@@ -1,4 +1,4 @@
-export default [{
+const memberList = [{
     name: '仲强',
     tags: ['游戏', '旅游', '写作', '……'],
     desc: '不到黄河心不死，且单身待解救的攻城狮',
@@ -217,9 +217,13 @@ export default [{
 
   {
     name: '王超楠',
-    tags: ['大佬'],
-    desc: '此处应有楠哥',
-    avatar: ''
+    tags: ['摄影大佬', '器材党'],
+    desc: '这家伙很懒, 什么都没写...',
+    avatar: 'https://fuss10.elemecdn.com/f/07/2fcdeb637ace4d565d9f8439eedcejpeg.jpeg'
   },
 
 ]
+
+memberList.sort(() => Math.random() - .5)
+
+export default memberList

@@ -96,17 +96,17 @@
    </div>
  </template>
  <script>
-  import rightLightImg from '~/icon/arrow-right-light.svg'
-  import rightDarkImg from '~/icon/arrow-right-dark.svg'
-  import blog1Img from '~/blog/blog1.png'
-  export default {
+    import rightLightImg from '~/icon/arrow-right-light.svg'
+    import rightDarkImg from '~/icon/arrow-right-dark.svg'
+    import blog1Img from '~/blog/blog1.png'
+    export default {
     data () {
       return {
         rightLightImg: rightLightImg,
         rightDarkImg: rightDarkImg,
         blog1Img: blog1Img,
         introduction: {
-          title: '饿了么中后台前端团队',
+          title: '饿了么 B 端前端团队',
           subtitle: 'Emazing FE',
           description: 'Self-improving happily every day!'
         },
@@ -165,7 +165,7 @@
           englishName: 'Team',
           img: 'https://fuss10.elemecdn.com/8/9a/9d167efcdc8a531853473aef2ddadjpeg.jpeg',
           btnName: '加入我们',
-          description: '我们是饿了么中后台前端开发团队（Emazing FE ），承担着饿了么中后台前端基础设施、数十个业务产品的研发。我们有着前沿的技术选型，欢快的工作氛围，多元的团队建设，饱足的成长食粮。在这里有一群年轻有趣的小伙伴，加入我们一起工作一起玩。Self-improving happily every day!Challenge complicated business, design awesome architecture!'
+          description: '我们是饿了么 B 端前端开发团队（Emazing FE ），承担着饿了么 B 端前端基础设施、数十个业务产品的研发。我们有着前沿的技术选型，欢快的工作氛围，多元的团队建设，饱足的成长食粮。在这里有一群年轻有趣的小伙伴，加入我们一起工作一起玩。Self-improving happily every day!Challenge complicated business, design awesome architecture!'
         }
       }
     },
@@ -194,7 +194,7 @@
         a.click()
        }
      }
-   }
+    }
  </script>
 <style lang="sass" rel="stylesheet/sass" scoped>
   .emazing-home
@@ -307,9 +307,12 @@
       margin:  100px auto
       display: flex
     .home-team-left
+      width: 750px
+      height: 400px
       > img
-        width: 750px
-        height: 400px
+        width: 100%
+        height: 100%
+        object-fit: cover
     .home-team-right 
       margin-left: 30px
       width: 360px

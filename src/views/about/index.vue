@@ -1,8 +1,11 @@
 <template>
   <div class="page-body">
+    <div id="lineDrawing">
+
+    </div>
     <p class="title">我们是怎样的团队？</p>
     <div class="about-desc">
-      <p>我们是饿了么中后台前端开发团队（Emazing FE ），承担着饿了么中后台前端基础设施、数十个业务产品的研发。我们有着前沿的技术选型，欢快的工作氛围，多元的团队建设，饱足的成长食粮。在这里有一群年轻有趣的小伙伴，加入我们一起工作一起玩。</p>
+      <p>我们是饿了么 B 端前端开发团队（Emazing FE ），承担着饿了么 B 端前端基础设施、数十个业务产品的研发。我们有着前沿的技术选型，欢快的工作氛围，多元的团队建设，饱足的成长食粮。在这里有一群年轻有趣的小伙伴，加入我们一起工作一起玩。</p>
     </div>
     <div class="about-keywords">
       <div class="flex-1 pr4"
@@ -110,7 +113,8 @@
         teamImage5: 'https://fuss10.elemecdn.com/9/e9/a16f75ad03113c54975218d005d88jpeg.jpeg',
         emazingImage: 'https://fuss10.elemecdn.com/7/97/8d581f257d886c522d394a842a351jpeg.jpeg',
         logo: 'https://fuss10.elemecdn.com/4/80/62848476e2f6ca4cf2049dd479637png.png',
-        colorList: ['#f44336', '#e91e63', '#9c27b0', '#673ab7', '#3f51b5', '#2196f3', '#03a9f4', '#00bcd4', '#009688', '#4caf50', '#8bc34a', '#cddc39', '#ff9b3b', '#ffc107', '#ff9800', '#ff0722', '#795548', '#9e9e9e', '#607d8b']
+        colorList: ['#f44336', '#e91e63', '#9c27b0', '#673ab7', '#3f51b5', '#2196f3', '#03a9f4', '#00bcd4', '#009688', '#4caf50', '#8bc34a', '#cddc39', '#ff9b3b', '#ffc107', '#ff9800', '#ff0722', '#795548', '#9e9e9e', '#607d8b'],
+        eSvg: require('~/svg/e.svg')
       }
     },
     methods: {
@@ -119,6 +123,19 @@
         const index = parseInt(Math.random() * length)
         return this.colorList[index]
       }
+    },
+    mounted() {
+      this.$nextTick(() => {
+         anime({
+          targets: '#lineDrawing text',
+          strokeDashoffset: [anime.setDashoffset, 0],
+          easing: 'easeInOutSine',
+          duration: 1500,
+          delay: function(el, i) { return i * 250 },
+          direction: 'alternate',
+          loop: true
+        })
+      })
     }
   }
 </script>

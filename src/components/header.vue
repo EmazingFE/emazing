@@ -93,12 +93,12 @@
     position: fixed
     top: 0
     left: 0
-    z-index: 100
+    z-index: 1
     width: 100%
     height: $headerHeight
-    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, .8) 80%, rgba(255, 255, 255, .6) 90%, rgba(255, 255, 255, 0) 100%)
+    background: #FFF
     &.is-home
-      background-image: linear-gradient(to bottom, rgba(42, 52, 73, 1) 0%, rgba(42, 52, 73, 1) 50%, rgba(42, 52, 73, .8) 80%, rgba(42, 52, 73, .6) 90%, rgba(42, 52, 73, 0) 100%)
+      background: rgb(42, 52, 73)
       color: #FFF
       box-shadow: none
 

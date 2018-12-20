@@ -1,16 +1,19 @@
 import Vue from 'vue'
-import router from '@/router'
+import anime from 'animejs'
 
 import 'vue-awesome/icons/heart'
 import 'vue-awesome/icons/heart-o'
+import Icon from 'vue-awesome/components/Icon'
+
 import '@napos/vue-kiwi'
 import '@napos/vue-kiwi/src/styles/index.sass'
-
-import Icon from 'vue-awesome/components/Icon'
+import router from '@/router'
 
 import App from './App.vue'
 
 Vue.component('icon', Icon)
+
+window.anime = anime
 
 /* eslint-disable no-new */
 new Vue({

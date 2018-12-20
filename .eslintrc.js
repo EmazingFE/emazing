@@ -10,7 +10,8 @@ module.exports = {
     browser: true,
   },
   globals: {
-    __DEV__: false
+    __DEV__: false,
+    anime: false
   },
   // https://github.com/feross/standard/blob/master/RULES.md#javascript-standard-style
   extends: [ 'standard', 'prettier' ],

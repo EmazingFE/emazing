@@ -1,0 +1,130 @@
+
+@for $i from 0 to 12
+  %m#{$i}
+    margin: #{$i * 5}px !important
+  %mt#{$i}
+    margin-top: #{$i * 5}px !important
+  %mr#{$i}
+    margin-right: #{$i * 5}px !important
+  %mb#{$i}
+    margin-bottom: #{$i * 5}px !important
+  %ml#{$i}
+    margin-left: #{$i * 5}px !important
+  %mlr#{$i}
+    margin-left: #{$i * 5}px !important
+    margin-right: #{$i * 5}px !important
+  %mtb#{$i}
+    margin-top: #{$i * 5}px !important
+    margin-bottom: #{$i * 5}px !important
+
+
+  %p#{$i}
+    padding: #{$i * 5}px !important
+  %pt#{$i}
+    padding-top: #{$i * 5}px !important
+  %pr#{$i}
+    padding-right: #{$i * 5}px !important
+  %pb#{$i}
+    padding-bottom: #{$i * 5}px !important
+  %pl#{$i}
+    padding-left: #{$i * 5}px !important
+  %plr#{$i}
+    padding-left: #{$i * 5}px !important
+    padding-right: #{$i * 5}px !important
+  %ptb#{$i}
+    padding-top: #{$i * 5}px !important
+    padding-bottom: #{$i * 5}px !important
+
+%h1  
+  font-size: 46px
+%h2  
+  font-size: 36px
+%h3  
+  font-size: 28px
+%h4  
+  font-size: 22px
+%h5  
+  font-size: 18px
+%h6  
+  font-size: 16px
+%body-text
+  font-size: 14px
+%small-text
+  font-size: 12px
+
+%text-center
+  text-align: center
+
+%text-right
+  text-align: right
+
+%text-left
+  text-align: left
+
+%flex
+  display: flex
+%flex-column
+  @extend %flex
+  flex-direction: column
+%flex-inline
+  display: inline-flex
+  
+%flex-wrap
+  flex-wrap: wrap
+%justify-end
+  justify-content: flex-end
+%justify-center
+  justify-content: center
+%align-center
+  align-items: center
+%space-between
+  justify-content: space-between
+%space-around
+  justify-content: space-around
+%flex-align-center
+  @extend %flex, %align-center
+%flex-1
+  flex: 1 0
+
+%border-round
+  border: 1px solid $border-primary
+%border-top
+  border-top: 1px solid $border-primary
+%border-bottom
+  border-bottom: 1px solid $border-primary
+%border-left
+  border-left: 1px solid $border-primary
+%border-right
+  border-right: 1px solid $border-primary
+
+%border-radius
+  border-radius: 3px
+%border-radius-circle
+  border-radius: 50%
+
+%shadow-bottom
+  box-shadow: 0 3px 10px 0 rgba(0, 0, 0, .05)
+
+%bg-minor
+  background: $background
+
+%f-500
+  font-weight: 500
+%fwb
+  font-weight: bold
+%lh1
+  line-height: 1
+
+%cursor
+  cursor: pointer
+
+%full-height
+  height: 100%
+
+::-webkit-scrollbar
+  width: 6px
+  height: 8px
+  
+::-webkit-scrollbar-thumb 
+  @extend %border-radius
+  background-color: $black-invalid

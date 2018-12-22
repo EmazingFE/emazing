@@ -37,21 +37,25 @@
             text: '首页',
             route: 'index'
           },
-          {
-            text: '博客',
-            route: 'blog'
-          },
-          {
-            text: '项目',
-            route: 'project'
-          },
-          {
-            text: '团队生活',
-            route: 'team'
-          },
+          // {
+          //   text: '博客',
+          //   route: 'blog'
+          // },
+          // {
+          //   text: '项目',
+          //   route: 'project'
+          // },
+          // {
+          //   text: '团队生活',
+          //   route: 'team'
+          // },
           {
             text: '关于',
             route: 'about'
+          },
+          {
+            text: '招聘',
+            route: 'recruit'
           }
         ],
       }
@@ -89,7 +93,7 @@
 
 <style lang="sass">
   .emazing-header
-    @extend .shadow-bottom, .h4, .f-500
+    @extend %shadow-bottom, %h4, %f-500
     position: fixed
     top: 0
     left: 0

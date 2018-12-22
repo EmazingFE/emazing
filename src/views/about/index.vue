@@ -1,14 +1,11 @@
 <template>
-  <div class="page-body">
-    <div id="lineDrawing">
-
-    </div>
+  <div>
     <p class="title">我们是怎样的团队？</p>
     <div class="about-desc">
       <p>我们是饿了么 B 端前端开发团队（Emazing FE ），承担着饿了么 B 端前端基础设施、数十个业务产品的研发。我们有着前沿的技术选型，欢快的工作氛围，多元的团队建设，饱足的成长食粮。在这里有一群年轻有趣的小伙伴，加入我们一起工作一起玩。</p>
     </div>
     <div class="about-keywords">
-      <div class="flex-1 pr4"
+      <div class="keyword"
         v-for="(keyword, $i) in keywords"
         :key="$i">
           <p class="keywords-title en">{{ keyword.title.EN }}</p>
@@ -20,7 +17,7 @@
       <p class="title">Emazing 的我们</p>
       <div class="about-us-image">
         <img :src="teamImage1">
-        <div class="join-us flex justify-center">
+        <div class="join-us">
           <span>加入我们</span>
         </div>
       </div>
@@ -142,29 +139,31 @@
 
 <style lang="sass" scoped>
   .title
-    @extend .text-center, .h2
+    @extend %text-center, %h2
     margin: 40px auto
   .about-desc
-    @extend .pt5, .pb10
+    @extend %pt5, %pb10
     margin: 0 auto
     width: 750px
     p
-      @extend .h6
+      @extend %h6
   .about-keywords
-    @extend .flex, .ptb8, .border-top, .border-bottom
+    @extend %flex, %ptb8, %border-top, %border-bottom
+    .keyword
+      @extend %flex-1, %pr4 
     .keywords-title
-      @extend .mtb0
+      @extend %mtb0
       &.en
-        @extend .mb4, .lh1, .f-500
+        @extend %mb4, %lh1, %f-500
         font-size: 64px
       &.cn
-        @extend .h1, .lh1
+        @extend %h1, %lh1
     .keywords-desc
-      @extend .black-assist, .mtb3
+      @extend %black-assist, %mtb3
   .about-container
     padding-top: 120px
     .about-us-image
-      @extend .border-radius
+      @extend %border-radius
       position: relative
       height: 400px
       overflow: hidden
@@ -175,37 +174,38 @@
         width: 100%
         transform: scale(1.1)
       .join-us
+        @extend %flex, %justify-center
         position: absolute
         bottom: 60px
         width: 100%
         > span
-          @extend .ptb2, .plr4, .border-radius, .h5, .f-500, .cursor
+          @extend %ptb2, %plr4, %border-radius, %h5, %f-500, %cursor
           background: rgba(0, 0, 0, 0.6)
           color: #FFF
           border: 1px solid #FFF
           &:hover
             background: rgba(0, 0, 0, 0.8)
     .member-list
-      @extend .flex, .flex-wrap, .space-between, .mt8
+      @extend %flex, %flex-wrap, %space-between, %mt8
       overflow-x: auto
   .image-wrapper
     height: 260px
     overflow: hidden
     img
-      @extend .border-radius
+      @extend %border-radius
       width: 100%
       height: 100%
   .about-footer
     background: $background
     padding: 60px 0 100px
     .conect-us-wrapper
-      @extend .flex, .align-center, .justify-center, .border-radius, .shadow-bottom
+      @extend %flex, %align-center, %justify-center, %border-radius, %shadow-bottom
       margin: 0 auto
       background: #FFF
       width: 360px
       height: 360px
       .conect-us
-        @extend .flex, .align-center, .justify-center, .shadow-bottom
+        @extend %flex, %align-center, %justify-center, %shadow-bottom
         background: #1989fa
         margin: 0 auto
         width: 166px
@@ -214,5 +214,5 @@
         img
           width: 75%
       .email
-        @extend .mt4, .text-center, .h5, .black-assist
+        @extend %mt4, %text-center, %h5, %black-assist
 </style>

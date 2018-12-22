@@ -11,6 +11,8 @@ import router from '@/router'
 
 import App from './App.vue'
 
+import '@/styles/app.sass'
+
 Vue.component('icon', Icon)
 
 window.anime = anime

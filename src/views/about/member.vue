@@ -42,13 +42,13 @@
 
 <style lang="sass" scoped>
   .member-item
-    @extend .flex, .mb4
+    @extend %flex, %mb4
     width: 350px
     .tag
-      @extend .mr1, .mb1, .ptb0, .plr1, .border-round, .border-radius
+      @extend %mr1, %mb1, %ptb0, %plr1, %border-round, %border-radius
       line-height: 20px
     .avatar
-      @extend .flex, .align-center, .justify-center, .mr4, .border-round, .border-radius-circle, .blue-primary
+      @extend %flex, %align-center, %justify-center, %mr4, %border-round, %border-radius-circle, %blue-primary
       // background: #1989fa
       flex-shrink: 0
       width: 130px
@@ -60,7 +60,7 @@
         height: 100%
         object-fit: cover
     .member-desc
-      @extend .black-minor
+      @extend %black-minor
   .fade-in-right
     animation: fadeInRight 5s
   @-webkit-keyframes fadeInRight

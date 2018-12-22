@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="page-body">
     <p class="title">我们是怎样的团队？</p>
     <div class="about-desc">
       <p>我们是饿了么 B 端前端开发团队（Emazing FE ），承担着饿了么 B 端前端基础设施、数十个业务产品的研发。我们有着前沿的技术选型，欢快的工作氛围，多元的团队建设，饱足的成长食粮。在这里有一群年轻有趣的小伙伴，加入我们一起工作一起玩。</p>

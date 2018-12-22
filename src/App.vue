@@ -2,7 +2,7 @@
   <div id="app">
     <welcome class="welcome" @removeWelcome="removeWelcome" v-if="welcomeShow"></welcome>
  	  <app-header></app-header>
-    <router-view class="page-body"></router-view>
+    <router-view></router-view>
     <app-footer></app-footer>
   </div>
 </template>

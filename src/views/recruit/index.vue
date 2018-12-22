@@ -1,5 +1,5 @@
 <template>
-  <div class="h6">
+  <div class="page-body">
     <div class="job-tabs">
       <div class="job"
         v-for="item in tabs"
@@ -135,7 +135,7 @@
 </script>
 
 <style lang="sass" scoped>
-  .h6
+  .page-body
     @extend %h6
   
   .job-tabs

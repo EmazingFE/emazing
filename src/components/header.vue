@@ -33,10 +33,10 @@
       return {
         emazingLogo: 'https://fuss10.elemecdn.com/f/c9/852ed58b43497f58aa60eee6f33dfpng.png',
         modules: [
-          {
-            text: '首页',
-            route: 'index'
-          },
+          // {
+          //   text: '首页',
+          //   route: 'index'
+          // },
           // {
           //   text: '博客',
           //   route: 'blog'

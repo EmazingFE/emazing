@@ -1,43 +1,39 @@
 <template>
   <div class="page-body">
-    <div class="job-tabs">
-      <div class="job"
-        v-for="item in tabs"
-        :class="{'active': isActive(item)}"
-        @click="changeActive(item)"
-        :key="item">
-        {{ item }}  
-      </div>
-    </div>
-    <div class="job-container">
-      <div class="job-wrapper">
-        <p class="job-name">{{ job.name }}</p>
-        <div class="job-detail"
-          v-for="detail in job.details">
-          <p>
-            <span class="detail-title">{{ detail.title }}:</span>
-            <span class="detail-desc">{{ detail.desc }}</span>
-          </p>
-        </div>
-        <div class="job-desc">
-          <div class="detail-title">岗位职责</div>
-          <div class="detail-desc">
-            <ul>
-              <li v-for="item in job.responsibilitys">{{ item }}</li>
-            </ul>
+    <list-nav :navs="navs"></list-nav>
+    <div class="main-container">
+      <div class="job-container">
+        <div class="job-wrapper"
+          v-for="(job, $i) in jobs"
+          :key="$i">
+          <p class="job-name">{{ job.name }}</p>
+          <div class="job-detail"
+            v-for="detail in job.details">
+            <p>
+              <span class="detail-title">{{ detail.title }}:</span>
+              <span class="detail-desc">{{ detail.desc }}</span>
+            </p>
           </div>
-        </div>
-        <div class="job-desc">
-          <div class="detail-title">岗位要求</div>
-          <div class="detail-desc">
-            <ul>
-              <li v-for="item in job.requests">{{ item }}</li>
-            </ul>
+          <div class="job-desc">
+            <div class="detail-title">岗位职责</div>
+            <div class="detail-desc">
+              <ul>
+                <li v-for="item in job.responsibilitys">{{ item }}</li>
+              </ul>
+            </div>
           </div>
+          <div class="job-desc">
+            <div class="detail-title">岗位要求</div>
+            <div class="detail-desc">
+              <ul>
+                <li v-for="item in job.requests">{{ item }}</li>
+              </ul>
+            </div>
+          </div>
+          <!-- <div class="job-desc">
+            <kw-button type="primary">申请职位</kw-button>
+          </div> -->
         </div>
-        <!-- <div class="job-desc">
-          <kw-button type="primary">申请职位</kw-button>
-        </div> -->
       </div>
       <div class="connect-wrapper">
         <p class="how-to-apply">如何应聘?</p>
@@ -68,70 +64,108 @@
 </template>
 
 <script>
+  import listNav from '@/components/list-nav'
   export default {
+    components: {
+      listNav
+    },
     data() {
       return {
-        tabs: [
+        navs: [
           '全部职位',
           // '前端开发专家',
           '资深前端工程师',
           // '高级前端工程师',
         ],
         activeTab: '全部职位',
-        job: {
-          name: '资深前端工程师',
-          details: [
-            {
-              title: '部门',
-              desc: '前端开发组'
-            },
-            {
-              title: '类别',
-              desc: '产研类'
-            },
-            {
-              title: '城市',
-              desc: '上海'
-            },
-            {
-              title: '人数',
-              desc: '1 人'
-            },
-            {
-              title: '工作年限',
-              desc: '3-5 年'
-            },
-            {
-              title: '发布时间',
-              desc: '2018-12-21'
-            },
-          ],
-          responsibilitys: [
-            '负责饿了么中后台相关业务的研发，性能分析与优化，保证系统稳定运行',
-            '负责前端界面的构建，各类交互设计与实现',
-            '参与业务组件库编写',
-            '持续关注 Web 开发技术的发展，掌握新技术的核心点，从中挑选适合我们自己的新技术',
-          ],
-          requests: [
-            '熟悉 W3C 标准，精通 HTML、CSS，精通 JavaScript',
-            '对用户体验、交互操作流程、及用户需求有深入理解',
-            '计算机或相关专毕业，3 年以上前端开发经验',
-            '对前端主流框架，包括 Vue，React，Angular 等有深刻理解',
-            '熟练掌握 gulp，webpack 等构建工具，对于前端工程化有一定深入的研究',
-            '具有良好的沟通能力，有较强的独立工作能力和解决问题的能力',
-            '英语水平良好，能熟练阅读英文技术文档',
-          ]
-        },
+        jobs: [
+          {
+            name: '资深前端工程师',
+            details: [
+              {
+                title: '部门',
+                desc: '前端开发组'
+              },
+              {
+                title: '城市',
+                desc: '上海'
+              },
+              {
+                title: '人数',
+                desc: '2 人'
+              },
+              {
+                title: '工作年限',
+                desc: '3-5 年'
+              },
+              {
+                title: '侧重',
+                desc: '基础开发'
+              },
+              {
+                title: '发布时间',
+                desc: '2018-12-21'
+              },
+            ],
+            responsibilitys: [
+              '负责饿了么B端前端相关基础设施建设，参与到组件库和其他面向开发/设计者的产品研发中',
+              '积极协助业务开发小伙伴解决技术问题，提高开发效率，改进历史项目',
+              '推动必要的新技术的落地，组织好团队的技术发展和成长',
+            ],
+            requests: [
+              '三年以上的前端开发经验，熟练掌握前端必要的领域知识',
+              '熟悉各种场景下的web业务特点，能抽象出合理的业务模型；对平面设计有一定的理解，关注用户体验',
+              '英语水平良好，有良好的沟通、学习能力和解决问题的能力',
+              '熟悉前端主流框架、构建方式，对工具集和前端工程化有足够理解',
+              '关注web开发技术的各个领域，能理解各种技术和工具的能力和边界',
+              '能对已有系统进行合理的补全和规划；能思考怎样帮助团队成员提高开发和维护效率',
+            ]
+          },
+          {
+            name: '资深前端工程师',
+            details: [
+              {
+                title: '部门',
+                desc: '前端开发组'
+              },
+              {
+                title: '城市',
+                desc: '上海'
+              },
+              {
+                title: '人数',
+                desc: '2 人'
+              },
+              {
+                title: '工作年限',
+                desc: '3-5 年'
+              },
+              {
+                title: '侧重',
+                desc: '业务开发'
+              },
+              {
+                title: '发布时间',
+                desc: '2018-12-21'
+              },
+            ],
+            responsibilitys: [
+              '负责饿了么B端相关业务开发，善于理解需求，保障功能稳定',
+              '对复杂业务能拆解分析，能独立思考技术方案，能抽象出合理的组件或其他工具',
+              '参与前端新技术的调研和实践，参与B端基础建设，帮助提升团队开发效率和能力',
+            ],
+            requests: [
+              '能承担B端复杂的业务开发，和后端一起实现合理的业务模型；能和设计师一起改进页面，提升用户体验',
+              '三年以上的前端开发经验，熟练掌握前端必要的领域知识',
+              '熟悉前端主流框架、构建方式，对工具集和前端工程化有足够理解',
+              '关注web开发技术的发展，能适时推进技术改进；了解web开发其他领域者更好',
+              '英语水平良好，有良好的沟通、学习和解决问题的能力',
+              '能高效组织团队承担完整的前端业务；善于思考总结，帮助团队成长',
+            ]
+          },
+        ],
       }
     },
-    methods: {
-      isActive(tab) {
-        return tab === this.activeTab
-      },
-      changeActive(tab) {
-        this.activeTab = tab
-      }
-    }
   }  
 </script>
 
@@ -139,20 +173,13 @@
   .page-body
     @extend %h6
   
-  .job-tabs
-    @extend %flex, %bg-minor
-    margin: 30px 0 60px
-    padding: 30px 40px
-    .job
-      margin-right: 100px
-      cursor: pointer
-      &.active
-        @extend %blue-primary, %f-500
-  .job-container
+  .main-container
     @extend %flex
-    margin-bottom: 120px
+    margin: 60px 0
   .job-wrapper
-    @extend %flex-1
+    @extend %flex-1, %pr4
+    &+.job-wrapper
+      margin-top: 80px
     .job-detail
       p
         @extend %mt0, %mb2

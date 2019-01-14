@@ -18,6 +18,7 @@ const scrollBehavior = () => {
 const routes = [
   {
     path: '/',
+    redirect: '/about',
     name: 'index',
     component: Home
   },

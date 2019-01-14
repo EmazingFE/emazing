@@ -30,9 +30,6 @@
               </ul>
             </div>
           </div>
-          <!-- <div class="job-desc">
-            <kw-button type="primary">申请职位</kw-button>
-          </div> -->
         </div>
       </div>
       <div class="connect-wrapper">

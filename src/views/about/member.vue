@@ -6,12 +6,12 @@
     </div>
       <div class="member-info">
         <div class="h5 mt1 mb3">{{ member.name }}</div>
-        <div class="mb2 flex flex-wrap">
+        <div class="member-tag">
           <span v-for="tag in member.tags"
             class="tag"
             :style="style">{{ tag }}</span>
         </div>
-        <div class="member-desc">{{ member.desc }}</div>
+        <div class="member-desc mt10">{{ member.desc }}</div>
       </div>
     </div>
   </div>
@@ -45,7 +45,7 @@
     @extend %flex, %mb4
     width: 350px
     .tag
-      @extend %mr1, %mb1, %ptb0, %plr1, %border-round, %border-radius
+      @extend %mr1, %mt1, %ptb0, %plr1, %border-round, %border-radius
       line-height: 20px
     .avatar
       @extend %flex, %align-center, %justify-center, %mr4, %border-round, %border-radius-circle, %blue-primary
@@ -59,8 +59,10 @@
         width: 100%
         height: 100%
         object-fit: cover
+    .member-tag
+      @extend %mt2, %flex, %flex-wrap
     .member-desc
-      @extend %black-minor
+      @extend %black-minor, %mt3
   .fade-in-right
     animation: fadeInRight 5s
   @-webkit-keyframes fadeInRight

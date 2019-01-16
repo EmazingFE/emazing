@@ -14,18 +14,18 @@
         </div>
     </div>
     <div class="about-container">
-      <p class="title">Emazing 的我们</p>
-      <div class="about-us-image">
-        <img :src="teamImage1">
-        <div class="join-us">
-          <span>加入我们</span>
-        </div>
-      </div>
+      <p class="title">Emazing 的我们</p>   
       <div class="member-list">
         <member-item v-for="(member, $i) in memberList"
           :member="member"
           :color="randomColor()"
           :key="$i"></member-item>
+      </div>
+      <div class="about-us-image">
+        <img :src="teamImage1">
+        <div class="join-us">
+          <span>加入我们</span>
+        </div>
       </div>
     </div>
     <div class="about-container">
@@ -163,7 +163,7 @@
   .about-container
     padding-top: 120px
     .about-us-image
-      @extend %border-radius
+      @extend %border-radius, %mt10
       position: relative
       height: 400px
       overflow: hidden
@@ -186,7 +186,7 @@
           &:hover
             background: rgba(0, 0, 0, 0.8)
     .member-list
-      @extend %flex, %flex-wrap, %space-between, %mt8
+      @extend %flex, %flex-wrap, %space-between, %mt10
       overflow-x: auto
   .image-wrapper
     height: 260px

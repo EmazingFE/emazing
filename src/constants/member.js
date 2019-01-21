@@ -29,7 +29,7 @@ const memberList = [{
   {
     name: '毛强强',
     tags: ['80后', '没钱花', '啃泡面'],
-    desc: '内心是个暖暖的智障的萌萌的撒娇的比卡丘 ',
+    desc: '内心是个暖暖的智障的萌萌的撒娇的皮卡丘 ',
     avatar: 'https://fuss10.elemecdn.com/e/61/efdd437fb7f106ea5797d94c85c9fjpeg.jpeg'
   },
 

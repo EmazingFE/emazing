@@ -15,17 +15,17 @@
     </div>
     <div class="about-container">
       <p class="title">Emazing 的我们</p>   
-      <div class="member-list">
-        <member-item v-for="(member, $i) in memberList"
-          :member="member"
-          :color="randomColor()"
-          :key="$i"></member-item>
-      </div>
       <div class="about-us-image">
         <img :src="teamImage1">
         <div class="join-us">
           <span>加入我们</span>
         </div>
+      </div>
+      <div class="member-list">
+        <member-item v-for="(member, $i) in memberList"
+          :member="member"
+          :color="randomColor()"
+          :key="$i"></member-item>
       </div>
     </div>
     <div class="about-container">

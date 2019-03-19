@@ -13,21 +13,7 @@
           <p class="keywords-desc">{{ keyword.desc }}</p>
         </div>
     </div>
-    <div class="about-container">
-      <p class="title">Emazing 的我们</p>   
-      <div class="about-us-image">
-        <img :src="teamImage1">
-        <div class="join-us">
-          <span>加入我们</span>
-        </div>
-      </div>
-      <div class="member-list">
-        <member-item v-for="(member, $i) in memberList"
-          :member="member"
-          :color="randomColor()"
-          :key="$i"></member-item>
-      </div>
-    </div>
+    
     <div class="about-container">
       <p class="title">Emazing 的环境</p>
       <kw-row class="env-image-container" gutter="30" content-wrap>
@@ -55,14 +41,34 @@
         <p>在这里，你不仅仅是工程师，扁平化的管理，你可以拥有足够大的空间，成为你想成为的人，做想做的事。</p>
       </div>
     </div>
+
+    <div class="about-container">
+      <p class="title">Emazing 的我们</p>    
+      <div class="member-list">
+        <member-item v-for="(member, $i) in memberList"
+          :member="member"
+          :color="randomColor()"
+          :key="$i"></member-item>
+      </div>
+      <div class="about-us-image">
+        <img :src="teamImage1">
+        <div class="join-us">
+          <span>加入我们</span>
+        </div>
+      </div>
+    </div>
+
     <div class="about-footer">
-      <p class="title">联系我们</p>
-      <div class="conect-us-wrapper">
-        <div>
-          <div class="conect-us">
-            <img :src="logo">
+      <div id="container"></div> 
+      <div class="conect-us-box">
+        <p class="title">联系我们</p>
+        <div class="conect-us-wrapper">
+          <div>
+            <div class="conect-us">
+              <img :src="logo">
+            </div>
+            <p class="email">keyuan.qin@ele.me</p>
           </div>
-          <p class="email">keyuan.qin@ele.me</p>
         </div>
       </div>
     </div>
@@ -122,6 +128,18 @@
       }
     },
     mounted() {
+      this.map = new AMap.Map('container', {
+        resizeEnable: true,
+        dragEnable: true,
+        zoom: 12,
+        center: [121.38089, 31.23173]
+      })
+      var marker = new AMap.Marker({
+          title: 'Emazing FE',  // 自定义点标记覆盖物内容
+          position:  [121.38089,31.23173], // 基点位置
+          offset: new AMap.Pixel(-17, -42) // 相对于基点的偏移位置
+      });
+      this.map.add(marker);
       this.$nextTick(() => {
          anime({
           targets: '#lineDrawing text',
@@ -140,7 +158,7 @@
 <style lang="sass" scoped>
   .title
     @extend %text-center, %h2
-    margin: 40px auto
+    margin: 60px auto 0 auto
   .about-desc
     @extend %pt5, %pb10
     margin: 0 auto
@@ -148,7 +166,7 @@
     p
       @extend %h6
   .about-keywords
-    @extend %flex, %ptb8, %border-top, %border-bottom
+    @extend %flex, %text-center, %ptb8, %border-top, %border-bottom
     .keyword
       @extend %flex-1, %pr4 
     .keywords-title
@@ -161,7 +179,8 @@
     .keywords-desc
       @extend %black-assist, %mtb3
   .about-container
-    padding-top: 120px
+    padding: 50px 0 100px 0
+    border-bottom: 1px solid #e4e7ed
     .about-us-image
       @extend %border-radius, %mt10
       position: relative
@@ -196,14 +215,24 @@
       width: 100%
       height: 100%
   .about-footer
-    background: $background
-    padding: 60px 0 100px
+    position: relative
+    border-bottom: 1px solid #e4e7ed
+    #container
+      top: 0px
+      width: 100%
+      height: 580px
+    .conect-us-box
+      position: absolute
+      top: 30px
+      width: 100%
+      text-align: center
     .conect-us-wrapper
       @extend %flex, %align-center, %justify-center, %border-radius, %shadow-bottom
       margin: 0 auto
       background: #FFF
       width: 360px
       height: 360px
+      opacity: 0.8
       .conect-us
         @extend %flex, %align-center, %justify-center, %shadow-bottom
         background: #1989fa

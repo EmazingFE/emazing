@@ -28,18 +28,19 @@
       },
       changeActive(tab) {
         this.activeTab = tab
+        this.$emit('click', tab)
       }
     }
   }
 </script>
 <style lang="sass">
   .nav-wrapper
-    @extend %flex, %bg-minor, %h6
+    @extend %flex, %bg-minor, %h6, %f-500
     margin: 30px 0
     padding: 30px 40px
     .nav-item
       margin-right: 100px
       cursor: pointer
       &.active
-        @extend %blue-primary, %f-500
+        @extend %blue-primary
 </style>

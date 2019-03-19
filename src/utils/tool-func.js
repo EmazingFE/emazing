@@ -1,3 +1,5 @@
+import Vue from 'vue'
+
 export function isEmpty (val) {
   const hasOwn = Object.prototype.hasOwnProperty
   const toString = Object.prototype.toString
@@ -36,3 +38,15 @@ export function isEmpty (val) {
   // Anything elese
   return false
 }
+
+export function gotoBlogDetail (item) {
+  Vue.prototype.currentBlog = item
+  this.$router.push({
+    name: item.path
+  })
+}
+
+export function getBlogDetail () {
+  return Vue.prototype.currentBlog
+}
+

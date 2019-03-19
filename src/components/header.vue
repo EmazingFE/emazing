@@ -33,14 +33,14 @@
       return {
         emazingLogo: 'https://fuss10.elemecdn.com/f/c9/852ed58b43497f58aa60eee6f33dfpng.png',
         modules: [
-          // {
-          //   text: '首页',
-          //   route: 'index'
-          // },
-          // {
-          //   text: '博客',
-          //   route: 'blog'
-          // },
+          {
+            text: '首页',
+            route: 'home'
+          },
+          {
+            text: '博客',
+            route: 'blog'
+          },
           // {
           //   text: '项目',
           //   route: 'project'
@@ -62,7 +62,7 @@
     },
     computed: {
       isIndexView () {
-        return this.$route.name === 'index'
+        return this.$route.name === 'home'
       }
     },
     methods: {
@@ -77,12 +77,12 @@
         })
       },
       isActiveRoute (routeName) {
+
         const matchedRoutes = this.$route.matched
         let hasMatched = false
-
-        matchedRoutes.forEach(mr => {
+        matchedRoutes.forEach(mr => {     
           if (!hasMatched) {
-            hasMatched = mr.name === routeName
+            hasMatched = mr.name.indexOf(routeName) !== -1
           }
         })
         return hasMatched

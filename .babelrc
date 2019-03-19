@@ -4,6 +4,11 @@
       "modules": false,
       "targets": {
         "browsers": ["last 2 versions", "Chrome >= 50"]
+      },
+      "test": {
+        "presets": [
+          ["@babel/preset-env", { "targets": { "node": 8 }}]
+        ]
       }
     }],
     "stage-2"

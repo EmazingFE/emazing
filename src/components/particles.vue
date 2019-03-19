@@ -9,12 +9,12 @@
 	export default {
 	    data () {
 	      return {
-		      	NUM_PARTICLES: ( ( this.ROWS = 100 ) * ( this.COLS = 300 ) ),
+		      	NUM_PARTICLES: ( ( this.ROWS = 10 ) * ( this.COLS = 20 ) ),
 			    THICKNESS: Math.pow( 80, 2 ),
-			    SPACING: 3,
-			    MARGIN: 100,
+			    SPACING: 30,
+			    MARGIN: 30,
 			    COLOR: 220,
-			    DRAG: 0.95,
+			    DRAG: 0.75,
 			    EASE: 0.25,
 			    particle: {
 				  vx: 0,
@@ -66,6 +66,8 @@
 
 				this.container.style.marginLeft = Math.round( this.w * -0.5 ) * 2 + 'px'
 				// this.container.style.marginTop = Math.round( this.h * -0.5 ) * 2 + 'px'
+				this.ctx.font = 'bold 12px arial'
+
 				// this.container.style.border = '1px solid red'
 
 				for ( let i = 0; i < this.NUM_PARTICLES; i++ ) {

@@ -1,11 +1,9 @@
 'use strict'
 const path = require('path')
-const fs = require('fs')
 const config = require('../config')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const packageConfig = require('../package.json')
 
-console.error(fs)
 function resolveLocalCommonResource(p) {
   return path.join(__dirname, '../src/styles', p)
 }

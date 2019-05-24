@@ -5,7 +5,6 @@ const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
 const webpack = require('webpack')
 const fs = require('fs')
-console.error(fs)
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)

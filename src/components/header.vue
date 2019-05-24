@@ -82,7 +82,7 @@
         let hasMatched = false
         matchedRoutes.forEach(mr => {     
           if (!hasMatched) {
-            hasMatched = mr.name.indexOf(routeName) !== -1
+            hasMatched = mr.name && mr.name.indexOf(routeName) !== -1
           }
         })
         return hasMatched

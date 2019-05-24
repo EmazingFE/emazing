@@ -29,23 +29,22 @@
 
 <script>
   import listNav from '@/components/list-nav'
-  import { getBlogDetail } from '@/utils/tool-func'
+  import { getBlogDetail, generateNav } from '@/utils/tool-func'
 
   export default {
     components: {
       listNav
     },
-    data() {
-      return {
-        navs: [
-          '全部文章(1)',
-          '技术共享(1)',
-        ]
-      }
-    },
+    // data() {
+    //   return {
+    //   }
+    // },
     computed: {
       blogInfo () {
-        return getBlogDetail()
+        return getBlogDetail(this.$route.name)
+      },
+      navs () {
+        return generateNav()
       }
     },
     methods: {

@@ -1,4 +1,4 @@
-import Vue from 'vue'
+import { blogs } from '@/constants/docs'
 
 export function isEmpty (val) {
   const hasOwn = Object.prototype.hasOwnProperty
@@ -40,13 +40,30 @@ export function isEmpty (val) {
 }
 
 export function gotoBlogDetail (item) {
-  Vue.prototype.currentBlog = item
   this.$router.push({
-    name: item.path
+    name: item.name
   })
 }
 
-export function getBlogDetail () {
-  return Vue.prototype.currentBlog
+export function getBlogDetail (name) {
+  let _blogList = blogs.filter(blog => blog.name === name)
+  return _blogList && _blogList.length ? _blogList[0] : null
 }
 
+export function generateNav () {
+  let _navs = []
+  if (blogs) {
+    _navs.push('全部文章(' + blogs.length + ')')
+    let navContainer = {}
+    blogs.forEach(blog => {
+      navContainer[blog.tag] = navContainer[blog.tag] || []
+      navContainer[blog.tag].push(blog)
+    })         
+
+    let navName = Object.keys(navContainer)
+    navName.forEach(nameItem => {
+      _navs.push(nameItem + '(' + navContainer[nameItem].length + ')')
+    })
+  } 
+  return _navs
+}

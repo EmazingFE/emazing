@@ -4,7 +4,7 @@ export const blogs = [
     author: '王超楠',
     tag: '技术共享',
     date: '2019.01.08',
-    path: 'agent',
+    name: 'agent',
     avatar: 'https://cube.elemecdn.com/f/07/2fcdeb637ace4d565d9f8439eedcejpeg.jpeg',
     title: '谈谈代理',
     description: '谈谈代理'
@@ -14,7 +14,7 @@ export const blogs = [
     author: '王超楠',
     tag: '技术共享',
     date: '2019.01.02',
-    path: 'fe-framework',
+    name: 'fe-framework',
     avatar: 'https://cube.elemecdn.com/f/07/2fcdeb637ace4d565d9f8439eedcejpeg.jpeg',
     title: '浅谈现代前端框架技术思想',
     description: '浅谈现代前端框架技术思想'
@@ -24,7 +24,7 @@ export const blogs = [
     author: '王超楠',
     tag: '工作杂谈',
     date: '2018.09.05',
-    path: 'time-management',
+    name: 'time-management',
     avatar: 'https://cube.elemecdn.com/f/07/2fcdeb637ace4d565d9f8439eedcejpeg.jpeg',
     title: '谈谈时间管理',
     description: '谈谈时间管理'
@@ -34,7 +34,7 @@ export const blogs = [
     author: '王超楠',
     tag: '工作杂谈',
     date: '2018.08.08',
-    path: 'pyramid-principle',
+    name: 'pyramid-principle',
     avatar: 'https://cube.elemecdn.com/f/07/2fcdeb637ace4d565d9f8439eedcejpeg.jpeg',
     title: '金字塔原则',
     description: '金字塔原则'
@@ -44,7 +44,7 @@ export const blogs = [
     author: '王超楠',
     tag: '技术共享',
     date: '2017.11.17',
-    path: 'aop',
+    name: 'aop',
     avatar: 'https://cube.elemecdn.com/f/07/2fcdeb637ace4d565d9f8439eedcejpeg.jpeg',
     title: '深入浅出 Javascript Decorators 和 AOP 编程',
     description: '深入浅出 Javascript Decorators 和 AOP 编程'
@@ -54,7 +54,7 @@ export const blogs = [
     author: '王超楠',
     tag: '技术共享',
     date: '2017.10.18',
-    path: 'fe-communication',
+    name: 'fe-communication',
     avatar: 'https://cube.elemecdn.com/f/07/2fcdeb637ace4d565d9f8439eedcejpeg.jpeg',
     title: '谈谈前端通信',
     description: '谈谈前端通信'
@@ -64,7 +64,7 @@ export const blogs = [
     author: '王超楠',
     tag: '技术共享',
     date: '2017.08.30',
-    path: 'unified-styling-language',
+    name: 'unified-styling-language',
     avatar: 'https://cube.elemecdn.com/f/07/2fcdeb637ace4d565d9f8439eedcejpeg.jpeg',
     title: '统一样式语言（A Unified Styling Language）',
     description: '统一样式语言（A Unified Styling Language）'
@@ -74,7 +74,7 @@ export const blogs = [
     author: '王超楠',
     tag: '技术共享',
     date: '2017.08.09',
-    path: 'sri',
+    name: 'sri',
     avatar: 'https://cube.elemecdn.com/f/07/2fcdeb637ace4d565d9f8439eedcejpeg.jpeg',
     title: '前端启用SRI策略',
     description: '前端启用SRI策略'
@@ -84,7 +84,7 @@ export const blogs = [
     author: '王超楠',
     tag: '技术共享',
     date: '2017.08.08',
-    path: 'script-label',
+    name: 'script-label',
     avatar: 'https://cube.elemecdn.com/f/07/2fcdeb637ace4d565d9f8439eedcejpeg.jpeg',
     title: '关于 script 标签你应该知道的',
     description: '关于 script 标签你应该知道的'

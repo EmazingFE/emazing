@@ -8,7 +8,9 @@
           <h2>{{ introduction.subtitle }}</h2>
           <p>{{ introduction.description }}</p>
         </div>
-        <div class="home-banner-right">
+        <div class="home-banner-right" v-if="isMounted">
+          <stars></stars>
+          <!-- <solar></solar> -->
           <!-- <particles></particles>        -->
         </div>
       </div>  
@@ -105,12 +107,16 @@
       blogObj: blogObj,
       projectObj: projectObj,
       teamObj: teamObj,
-      gotoBlogDetail: gotoBlogDetail
+      gotoBlogDetail: gotoBlogDetail,
+      isMounted: false
     }
   },
   mounted () {
     // let jumbotron = new Jumbotron(this.$refs.el)
     // jumbotron.render()
+    this.$nextTick(function(){
+        this.isMounted = true
+    })    
   },
   methods: {
     viewModule (module) {
@@ -147,10 +153,13 @@
     width: $pageWidth
     height: 100%
     box-sizing: border-box
-    display: flex
-    justify-content: space-between
+    // display: flex
+    // justify-content: space-between
     margin: 0 auto
+    position: relative
   .home-banner-left
+    position: absolute
+    left: 30px
     > h1, h2, p
       margin: 0
       color: #ffffff
@@ -158,6 +167,10 @@
       margin-top: 106px
     > h2
       margin: 24px 0
+  .home-banner-right
+    width: 100%
+    height: 100%
+    overflow: hidden
   
   .home-body
     margin:  60px auto 130px auto

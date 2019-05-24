@@ -127,8 +127,8 @@ const memberList = [{
   {
     name: '李元元',
     tags: ['二次元'],
-    desc: '今天也要加油喵～(๑•̀ㅁ•́ฅ✧',
-    avatar: 'https://fuss10.elemecdn.com/8/91/17fd964f62a0e8dbcbd77e3485802jpeg.jpeg'
+    desc: '重度吸猫患者～(๑•̀ㅁ•́ฅ✧',
+    avatar: 'https://cube.elemecdn.com/2/9d/05eff67bd4807d877b47cfd87cf3cpng.png'
   },
 
   {

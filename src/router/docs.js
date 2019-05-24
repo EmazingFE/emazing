@@ -30,9 +30,9 @@ function toUpperCaseKey(str) {
 blogs.forEach(blog => {
   _docsRoutes.push(
   	{
-	    path: blog.path,
-	    name: blog.path,
-	    component: _components[toUpperCaseKey(blog.path)]
+	    path: blog.name,
+	    name: blog.name,
+	    component: _components[toUpperCaseKey(blog.name)]
 	  },
   )
 })

@@ -15,7 +15,7 @@
 <script>
   import listNav from '@/components/list-nav'
   import { blogs } from '@/constants/docs'
-  import { gotoBlogDetail } from '@/utils/tool-func'
+  import { gotoBlogDetail, generateNav } from '@/utils/tool-func'
 
   export default {
     components: {
@@ -30,28 +30,13 @@
       }
     },
     created () {
-      this.generateNav()
+      this.navs = generateNav()
     },
     methods: {
       route (name) {
         this.$router.push({
           name
         })
-      },
-      generateNav () {
-        if (blogs) {
-          this.navs.push('全部文章(' + blogs.length + ')')
-          let navContainer = {}
-          blogs.forEach(blog => {
-            navContainer[blog.tag] = navContainer[blog.tag] || []
-            navContainer[blog.tag].push(blog)
-          })         
-
-          let navName = Object.keys(navContainer)
-          navName.forEach(nameItem => {
-            this.navs.push(nameItem + '(' + navContainer[nameItem].length + ')')
-          })
-        }  
       },
       changeNav (tab) {
         this.activeTab = tab.indexOf('全部文章') !== -1 ? null : tab

@@ -13,21 +13,7 @@
           <p class="keywords-desc">{{ keyword.desc }}</p>
         </div>
     </div>
-    <div class="about-container">
-      <p class="title">Emazing 的我们</p>   
-      <div class="about-us-image">
-        <img :src="teamImage1">
-        <div class="join-us">
-          <span>加入我们</span>
-        </div>
-      </div>
-      <div class="member-list">
-        <member-item v-for="(member, $i) in memberList"
-          :member="member"
-          :color="randomColor()"
-          :key="$i"></member-item>
-      </div>
-    </div>
+    
     <div class="about-container">
       <p class="title">Emazing 的环境</p>
       <kw-row class="env-image-container" gutter="30" content-wrap>
@@ -55,20 +41,38 @@
         <p>在这里，你不仅仅是工程师，扁平化的管理，你可以拥有足够大的空间，成为你想成为的人，做想做的事。</p>
       </div>
     </div>
-    <div class="about-footer">
-      <p class="title">联系我们</p>
-      <div class="conect-us-wrapper">
-        <div>
-          <div class="conect-us">
-            <img :src="logo">
-          </div>
-          <p class="email">keyuan.qin@ele.me</p>
+
+    <div class="about-container">
+      <p class="title">Emazing 的我们</p>    
+      <div class="member-list">
+        <member-item v-for="(member, $i) in memberList"
+          :member="member"
+          :color="randomColor()"
+          :key="$i"></member-item>
+      </div>
+      <div class="about-us-image">
+        <img :src="teamImage1">
+        <div class="join-us" @click="route('recruit')">
+          <span>加入我们</span>
         </div>
       </div>
     </div>
+
+    <div class="about-footer">
+      <div id="container"></div> 
+      <div id="my-infowin-tpl" class="conect-us-box" v-show="false">
+        <div class="conect-us-wrapper">
+          <div>
+            <div class="conect-us">
+              <img :src="logo">
+            </div>
+            <p class="address">上海市普陀区真北路788号近铁城市广场商场南座</p>
+          </div>
+        </div>
+      </div>
+    </div> 
   </div>
 </template>
-
 <script>
   import memberItem from './member'
   import memberList from '@/constants/member'
@@ -79,6 +83,8 @@
     },
     data() {
       return {
+        marker: null,
+        map: null,
         memberList,
         keywords: [
           {
@@ -115,24 +121,78 @@
       }
     },
     methods: {
+      route (name) {
+        this.$router.push({
+          name
+        })
+      },
       randomColor() {
         const length = this.colorList.length
         const index = parseInt(Math.random() * length)
         return this.colorList[index]
-      }
+      },
+      initPage(SimpleMarker) {
+        var vm = this
+        // var charList = ['联', '系', '我', '们']
+        // var colorList = ['lightpink', 'lightyellow', 'lightblue', 'beige']
+        // var iconIdx = 0
+
+        vm.marker = new SimpleMarker({
+          iconTheme: 'fresh',
+          showPositionPoint: false,
+          title: 'Emazing FE',
+          position: this.map.getCenter(),
+          offset: new AMap.Pixel(-17, -42),
+          map: this.map,
+        })
+        
+        // function switchIcon() {
+        //     iconIdx = (++iconIdx) % charList.length
+        //     vm.marker.setIconStyle(colorList[iconIdx])
+        //     vm.marker.setIconLabel({
+        //         innerHTML: charList[iconIdx]
+        //     })
+        // }
+
+        // setInterval(switchIcon, 1000)    
+      },
+      initWindow() {
+        let vm = this
+        AMapUI.defineTpl("ui/overlay/SimpleInfoWindow/tpl/container.html", [], function() {
+          return document.getElementById('my-infowin-tpl').innerHTML
+        })
+        AMapUI.loadUI(['overlay/SimpleInfoWindow'], function(SimpleInfoWindow) {
+          var infoWindow = new SimpleInfoWindow({
+              offset: new AMap.Pixel(0, -45)
+          });
+          function openInfoWin() {
+            infoWindow.open(vm.map, vm.marker.getPosition())
+          }
+
+          AMap.event.addListener(vm.marker, 'click', function() {
+            // openInfoWin()
+            document.location = 'Mailto:yuanyuan.lish@ele.me?subject=EmazingFE'
+          })
+          openInfoWin()
+        })
+      }        
     },
     mounted() {
-      this.$nextTick(() => {
-         anime({
-          targets: '#lineDrawing text',
-          strokeDashoffset: [anime.setDashoffset, 0],
-          easing: 'easeInOutSine',
-          duration: 1500,
-          delay: function(el, i) { return i * 250 },
-          direction: 'alternate',
-          loop: true
-        })
+      this.map = new AMap.Map('container', {
+        resizeEnable: true,
+        dragEnable: true,
+        zoom: 12,
+        center: [121.38089, 31.23173]
       })
+      
+      let vm = this
+      AMapUI.loadUI(['overlay/SimpleMarker'], function(SimpleMarker) {
+          vm.initPage(SimpleMarker)
+      })
+      this.$nextTick(() => {
+        vm.initWindow()
+      })
+      
     }
   }
 </script>
@@ -140,7 +200,7 @@
 <style lang="sass" scoped>
   .title
     @extend %text-center, %h2
-    margin: 40px auto
+    margin: 60px auto 0 auto
   .about-desc
     @extend %pt5, %pb10
     margin: 0 auto
@@ -148,7 +208,7 @@
     p
       @extend %h6
   .about-keywords
-    @extend %flex, %ptb8, %border-top, %border-bottom
+    @extend %flex, %text-center, %ptb8, %border-top, %border-bottom
     .keyword
       @extend %flex-1, %pr4 
     .keywords-title
@@ -161,7 +221,8 @@
     .keywords-desc
       @extend %black-assist, %mtb3
   .about-container
-    padding-top: 120px
+    padding: 50px 0 100px 0
+    border-bottom: 1px solid #e4e7ed
     .about-us-image
       @extend %border-radius, %mt10
       position: relative
@@ -196,23 +257,35 @@
       width: 100%
       height: 100%
   .about-footer
-    background: $background
-    padding: 60px 0 100px
-    .conect-us-wrapper
-      @extend %flex, %align-center, %justify-center, %border-radius, %shadow-bottom
+    position: relative
+    border-bottom: 1px solid #e4e7ed
+    #container
+      top: 0px
+      width: 100%
+      height: 580px
+  .conect-us-box
+    position: absolute
+    top: 30px
+    width: 360px
+    text-align: center
+  .conect-us-wrapper
+    @extend %flex, %align-center, %justify-center, %border-radius, %shadow-bottom
+    margin: 0 auto
+    background: #FFF
+    width: 220px
+    height: 220px
+    opacity: 0.8
+    .conect-us
+      @extend %flex, %align-center, %justify-center, %shadow-bottom
+      background: #1989fa
       margin: 0 auto
-      background: #FFF
-      width: 360px
-      height: 360px
-      .conect-us
-        @extend %flex, %align-center, %justify-center, %shadow-bottom
-        background: #1989fa
-        margin: 0 auto
-        width: 166px
-        height: 166px
-        border-radius: 50%
-        img
-          width: 75%
-      .email
-        @extend %mt4, %text-center, %h5, %black-assist
+      width: 130px
+      height: 130px
+      border-radius: 50%
+      img
+        width: 75%
+    .email
+      @extend %mb0, %text-center, %h5, %black-assist
+    .address
+      @extend %mb0, %text-center, %h6, %black-assist
 </style>

@@ -7,16 +7,8 @@
   </div>
 </template>
 <script>
-  import welcome from './components/welcome'
-  import AppHeader from './components/header'
-  import AppFooter from './components/footer'
 
   export default {
-    components: {
-      welcome,
-      AppHeader,
-      AppFooter
-    },
     data() {
       return {
         welcomeShow: true

@@ -1,3 +1,5 @@
+import { blogs } from '@/constants/docs'
+
 export function isEmpty (val) {
   const hasOwn = Object.prototype.hasOwnProperty
   const toString = Object.prototype.toString
@@ -35,4 +37,33 @@ export function isEmpty (val) {
   }
   // Anything elese
   return false
+}
+
+export function gotoBlogDetail (item) {
+  this.$router.push({
+    name: item.name
+  })
+}
+
+export function getBlogDetail (name) {
+  let _blogList = blogs.filter(blog => blog.name === name)
+  return _blogList && _blogList.length ? _blogList[0] : null
+}
+
+export function generateNav () {
+  let _navs = []
+  if (blogs) {
+    _navs.push('全部文章(' + blogs.length + ')')
+    let navContainer = {}
+    blogs.forEach(blog => {
+      navContainer[blog.tag] = navContainer[blog.tag] || []
+      navContainer[blog.tag].push(blog)
+    })         
+
+    let navName = Object.keys(navContainer)
+    navName.forEach(nameItem => {
+      _navs.push(nameItem + '(' + navContainer[nameItem].length + ')')
+    })
+  } 
+  return _navs
 }
